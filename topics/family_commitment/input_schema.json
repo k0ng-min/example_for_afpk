@@ -1,0 +1,4 @@
+[
+  { "key": "family_support_cap", "label": "가족과 합의 가능한 지원 상한", "unit": "원/월", "min": 0, "max": 3000000, "default": 400000, "description": "시나리오 '지원 상한'의 참고값" },
+  { "key": "family_members_supported", "label": "지원 대상 가족 수", "unit": "명", "min": 0, "max": 10, "default": 2, "description": "정성 판단 참고용(계산에는 미사용)" }
+]

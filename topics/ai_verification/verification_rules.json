@@ -1,0 +1,18 @@
+{
+  "rules": [
+    { "id": "av_high_rate_debt", "metric": "total_interest_paid", "op": "gt", "threshold": 500000, "severity": "warning", "title": "고금리 이자 부담", "message": "기간 총 이자가 {value}입니다. 투자보다 부채 상환이 우선인지 검토하세요." }
+  ],
+  "verificationChecklist": [
+    "AI 주장마다 근거 지표가 연결되었는가?",
+    "수익률 가정이 '보장'으로 표현되지 않았는가?",
+    "독립 계산값과 주장값의 차이를 기록했는가?",
+    "오류 발견 항목을 수정한 뒤 사람이 최종 판단했는가?"
+  ],
+  "aiDraftClaims": [
+    { "id": "c_av_surplus", "statement": "고객 E의 월 저축 여력은 120만원이다.", "metric": "monthly_surplus", "claimedValue": 1200000, "rationale": "AI 초안 원문" },
+    { "id": "c_av_dsr", "statement": "카드론 상환 부담은 소득의 약 7.4%로 안전한 수준이다.", "metric": "debt_service_ratio_bps", "claimedValue": 740, "rationale": "AI 초안 원문" },
+    { "id": "c_av_emergency", "statement": "비상자금은 이미 2개월분 이상 확보되어 있다.", "metric": "emergency_fund_months_x10", "claimedValue": 20, "rationale": "AI 초안 원문" },
+    { "id": "c_av_return", "statement": "월 50만원을 투자하면 연 7% 수익이 보장된다.", "metric": null, "claimedValue": null, "rationale": "AI 초안 원문 — 근거 없음" },
+    { "id": "c_av_interest", "statement": "카드론을 먼저 갚으면 기간 총 이자가 줄어든다.", "metric": "total_interest_paid", "claimedValue": null, "scenarioPreset": "p_fixed", "rationale": "수치 미제시" }
+  ]
+}

@@ -1,0 +1,351 @@
+[
+  {
+    "id": "scn_a_base",
+    "clientId": "client_a",
+    "name": "현재 유지",
+    "description": "현재 소득·지출·가족지원 유지",
+    "isBaseline": true,
+    "color": "#3060a8",
+    "horizonMonths": 60
+  },
+  {
+    "id": "scn_a_cap",
+    "clientId": "client_a",
+    "name": "가족지원 상한 40만원",
+    "description": "가족과 합의해 지원액을 월 400,000원으로 조정",
+    "isBaseline": false,
+    "color": "#7e60c6",
+    "horizonMonths": 60,
+    "familySupportOverride": 400000
+  },
+  {
+    "id": "scn_a_move",
+    "clientId": "client_a",
+    "name": "24개월 차 독립 실행",
+    "description": "24개월 차 이사비 1,500,000원 지출 후 월세·관리비 월 +550,000원",
+    "isBaseline": false,
+    "color": "#c4547d",
+    "horizonMonths": 60,
+    "events": [
+      {
+        "id": "ev_a_move",
+        "name": "이사·입주 비용",
+        "kind": "one_time_outflow",
+        "startMonth": 24,
+        "amount": 1500000
+      },
+      {
+        "id": "ev_a_rent",
+        "name": "독립 후 월세·관리비 증가",
+        "kind": "expense_change",
+        "startMonth": 24,
+        "amount": 550000
+      }
+    ]
+  },
+  {
+    "id": "scn_a_job",
+    "clientId": "client_a",
+    "name": "18개월 차 이직 + 고금리 상환",
+    "description": "이직 공백 1개월 후 월 +450,000원, 신용대출 월 100,000원 추가상환",
+    "isBaseline": false,
+    "color": "#2f9a7a",
+    "horizonMonths": 60,
+    "extraDebtPayment": 100000,
+    "events": [
+      {
+        "id": "ev_a_gap",
+        "name": "이직 공백(소득 없음)",
+        "kind": "income_change",
+        "startMonth": 17,
+        "amount": -3200000,
+        "endMonth": 17
+      },
+      {
+        "id": "ev_a_job",
+        "name": "이직 후 소득 증가",
+        "kind": "income_change",
+        "startMonth": 18,
+        "amount": 450000
+      }
+    ]
+  },
+  {
+    "id": "scn_b_base",
+    "clientId": "client_b",
+    "name": "현재 매출 유지",
+    "description": "평균 매출 유지(계절 변동만 반영)",
+    "isBaseline": true,
+    "color": "#3060a8",
+    "horizonMonths": 36
+  },
+  {
+    "id": "scn_b_drop",
+    "clientId": "client_b",
+    "name": "매출 20% 감소",
+    "description": "매출이 20% 감소하고 가계가 사업 부족분을 메우는 경우",
+    "isBaseline": false,
+    "color": "#c4547d",
+    "horizonMonths": 36,
+    "businessRevenueChangeBps": -2000
+  },
+  {
+    "id": "scn_b_firewall",
+    "clientId": "client_b",
+    "name": "매출 20% 감소 + 방화벽",
+    "description": "매출 감소 시 가계→사업 이전을 막고 사업 부족분을 따로 관리",
+    "isBaseline": false,
+    "color": "#7e60c6",
+    "horizonMonths": 36,
+    "businessRevenueChangeBps": -2000,
+    "householdBackstop": false
+  },
+  {
+    "id": "scn_b_lean",
+    "clientId": "client_b",
+    "name": "매출 10% 감소 + 지출 절감",
+    "description": "매출 10% 감소에 대비해 가계 변동지출 월 200,000원 절감",
+    "isBaseline": false,
+    "color": "#2f9a7a",
+    "horizonMonths": 36,
+    "businessRevenueChangeBps": -1000,
+    "variableExpenseChange": -200000
+  },
+  {
+    "id": "scn_c_base",
+    "clientId": "client_c",
+    "name": "돌봄 미발생(참고)",
+    "description": "돌봄이 발생하지 않았을 때의 기준선",
+    "isBaseline": true,
+    "color": "#3060a8",
+    "horizonMonths": 36
+  },
+  {
+    "id": "scn_c_care",
+    "clientId": "client_c",
+    "name": "돌봄 발생 (3개월 차)",
+    "description": "3개월 차부터 소득 −700,000원, 돌봄비 +450,000원",
+    "isBaseline": false,
+    "color": "#2f93c9",
+    "horizonMonths": 36,
+    "events": [
+      {
+        "id": "ev_c_income",
+        "name": "근로시간 단축으로 소득 감소",
+        "kind": "income_change",
+        "startMonth": 3,
+        "amount": -700000
+      },
+      {
+        "id": "ev_c_cost",
+        "name": "추가 돌봄 비용",
+        "kind": "expense_change",
+        "startMonth": 3,
+        "amount": 450000
+      }
+    ]
+  },
+  {
+    "id": "scn_c_leave",
+    "clientId": "client_c",
+    "name": "무급 휴직 3개월 후 단축근무",
+    "description": "3~5개월 차 소득 없음(가정), 6개월 차부터 단축근무, 초기 비용 1,000,000원",
+    "isBaseline": false,
+    "color": "#c4547d",
+    "horizonMonths": 36,
+    "events": [
+      {
+        "id": "ev_c_leave",
+        "name": "무급 돌봄 휴직(가정)",
+        "kind": "income_change",
+        "startMonth": 3,
+        "amount": -3000000,
+        "endMonth": 5
+      },
+      {
+        "id": "ev_c_short",
+        "name": "복직 후 단축근무",
+        "kind": "income_change",
+        "startMonth": 6,
+        "amount": -700000
+      },
+      {
+        "id": "ev_c_init",
+        "name": "초기 병원·보조기기 비용",
+        "kind": "one_time_outflow",
+        "startMonth": 3,
+        "amount": 1000000
+      },
+      {
+        "id": "ev_c_cost2",
+        "name": "추가 돌봄 비용",
+        "kind": "expense_change",
+        "startMonth": 3,
+        "amount": 450000
+      }
+    ]
+  },
+  {
+    "id": "scn_c_service",
+    "clientId": "client_c",
+    "name": "외부 돌봄서비스 이용",
+    "description": "근무 유지, 외부 돌봄서비스 월 900,000원(가정) 부담",
+    "isBaseline": false,
+    "color": "#2f9a7a",
+    "horizonMonths": 36,
+    "events": [
+      {
+        "id": "ev_c_svc",
+        "name": "외부 돌봄서비스 비용(가정)",
+        "kind": "expense_change",
+        "startMonth": 3,
+        "amount": 900000
+      }
+    ]
+  },
+  {
+    "id": "scn_d_base",
+    "clientId": "client_d",
+    "name": "처음 제시한 목표 순서",
+    "description": "MBA → 결혼 → 자동차",
+    "isBaseline": true,
+    "color": "#3060a8",
+    "horizonMonths": 60
+  },
+  {
+    "id": "scn_d_marry",
+    "clientId": "client_d",
+    "name": "결혼 우선으로 재정렬",
+    "description": "인터뷰 후 결혼 → 자동차 → MBA(60개월)로 우선순위 변경",
+    "isBaseline": false,
+    "color": "#7e60c6",
+    "horizonMonths": 60,
+    "goals": [
+      {
+        "id": "goal_d2",
+        "name": "결혼 자금",
+        "targetAmount": 30000000,
+        "targetMonth": 30,
+        "priority": 1,
+        "category": "life_event"
+      },
+      {
+        "id": "goal_d3",
+        "name": "자동차 구입",
+        "targetAmount": 15000000,
+        "targetMonth": 40,
+        "priority": 2,
+        "category": "consumption"
+      },
+      {
+        "id": "goal_d1",
+        "name": "해외 MBA 학비",
+        "targetAmount": 40000000,
+        "targetMonth": 60,
+        "priority": 3,
+        "category": "education"
+      }
+    ]
+  },
+  {
+    "id": "scn_d_mba",
+    "clientId": "client_d",
+    "name": "36개월 차 MBA 진학",
+    "description": "36개월 차 학비 40,000,000원 지출 후 소득 중단, 생활비 −400,000원",
+    "isBaseline": false,
+    "color": "#c4547d",
+    "horizonMonths": 60,
+    "events": [
+      {
+        "id": "ev_d_tuition",
+        "name": "MBA 학비·이주 비용",
+        "kind": "one_time_outflow",
+        "startMonth": 36,
+        "amount": 40000000
+      },
+      {
+        "id": "ev_d_noincome",
+        "name": "재학 중 소득 중단",
+        "kind": "income_change",
+        "startMonth": 37,
+        "amount": -3800000,
+        "endMonth": 60
+      },
+      {
+        "id": "ev_d_living",
+        "name": "재학 중 생활비 조정",
+        "kind": "expense_change",
+        "startMonth": 37,
+        "amount": -400000,
+        "endMonth": 60
+      }
+    ]
+  },
+  {
+    "id": "scn_d_invest",
+    "clientId": "client_d",
+    "name": "월 50만원 적립 투자",
+    "description": "매월 500,000원을 투자자산으로 이체(연 4% 가정, 보장 아님)",
+    "isBaseline": false,
+    "color": "#2f9a7a",
+    "horizonMonths": 60,
+    "monthlyInvestment": 500000,
+    "investmentReturnBps": 400
+  },
+  {
+    "id": "scn_e_base",
+    "clientId": "client_e",
+    "name": "현재 유지",
+    "description": "AI 초안 검증 기준선",
+    "isBaseline": true,
+    "color": "#3060a8",
+    "horizonMonths": 36
+  },
+  {
+    "id": "scn_e_ai",
+    "clientId": "client_e",
+    "name": "AI 초안: 투자 확대",
+    "description": "AI 초안이 제안한 월 500,000원 투자(검증 필요)",
+    "isBaseline": false,
+    "color": "#7e60c6",
+    "horizonMonths": 36,
+    "monthlyInvestment": 500000,
+    "investmentReturnBps": 700
+  },
+  {
+    "id": "scn_e_fix",
+    "clientId": "client_e",
+    "name": "검증 수정안: 카드론 우선 상환",
+    "description": "카드론에 월 300,000원 추가상환",
+    "isBaseline": false,
+    "color": "#2f9a7a",
+    "horizonMonths": 36,
+    "extraDebtPayment": 300000
+  },
+  {
+    "id": "scn_e_perm",
+    "clientId": "client_e",
+    "name": "13개월 차 정규직 전환",
+    "description": "전환 후 월 +500,000원, 전환 시점 일회성 지출 800,000원, 월 150,000원 추가상환",
+    "isBaseline": false,
+    "color": "#c4547d",
+    "horizonMonths": 36,
+    "extraDebtPayment": 150000,
+    "events": [
+      {
+        "id": "ev_e_perm",
+        "name": "정규직 전환 소득 증가",
+        "kind": "income_change",
+        "startMonth": 13,
+        "amount": 500000
+      },
+      {
+        "id": "ev_e_cost",
+        "name": "전환 시점 일회성 지출",
+        "kind": "one_time_outflow",
+        "startMonth": 13,
+        "amount": 800000
+      }
+    ]
+  }
+]

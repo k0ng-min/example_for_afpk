@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+/* ── FINOVA "Mist" 디자인 시스템 ─────────────────────────────────────
+   레퍼런스: Wirely — My Portfolio (첨부 이미지) 의 분위기를 재해석.
+   - 흐린 블루그레이 배경 위의 큰 반투명 유리 패널
+   - 얇은 타이포(Light), 작은 회색 라벨, 소수부·단위는 작게
+   - 알약형 버튼·칩, 원형 아이콘 버튼, 강조 카드는 화면당 하나(스틸블루 그라데이션)
+   - 채도 낮은 블루그레이 단색 계열. 강한 색은 상태 표시에만 */
+:root {
+  --bg-1: #dfe6ee;
+  --bg-2: #c4d0dd;
+  --bg-3: #9eb0c4;
+  --glass: rgba(255, 255, 255, 0.5);
+  --glass-strong: rgba(255, 255, 255, 0.72);
+  --glass-soft: rgba(255, 255, 255, 0.34);
+  --glass-line: rgba(255, 255, 255, 0.75);
+  --glass-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 18px 40px -22px rgba(36, 56, 86, 0.28);
+  --pill-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 2px 8px -2px rgba(36, 56, 86, 0.12);
+  --hair: rgba(36, 56, 86, 0.08);
+  --hair-strong: rgba(36, 56, 86, 0.14);
+  --text: #1c2431;
+  --text-muted: #5f6b7c;
+  --text-dim: #8d97a6;
+  --primary: #3d5c88;
+  --primary-deep: #2c4569;
+  --primary-soft: rgba(61, 92, 136, 0.1);
+  --steel-a: #8aa0bd;
+  --steel-b: #5f7799;
+  --ok: #2f8a6e;
+  --warn: #a8732a;
+  --danger: #bf4f4f;
+  --violet: #6e5aa8;
+  --cyan: #2e86a8;
+  --blue: #3d5c88;
+  /* 주제 액센트: 채도를 낮춘 값만 사용(레퍼런스의 차분함 유지) */
+  --accent: var(--primary);
+  --accent-soft: color-mix(in oklab, var(--accent) 11%, transparent);
+  --accent-line: color-mix(in oklab, var(--accent) 35%, transparent);
+  /* 이전 디자인에서 쓰던 토큰 이름: 정의가 빠져 선·테두리가 그려지지 않던 문제를 막는 별칭 */
+  --s1: rgba(255, 255, 255, 0.92);
+  --line-strong: var(--hair-strong);
+  --panel-solid: #ffffff;
+  --void: #e3e9f1;
+  color-scheme: light;
+}
+:root[data-accent="cyan"] { --accent: #2e7f9e; }
+:root[data-accent="blue"] { --accent: #3d5c88; }
+:root[data-accent="violet"] { --accent: #6550a0; }
+:root[data-accent="emerald"] { --accent: #2f7f69; }
+:root[data-accent="amber"] { --accent: #9a6a28; }
+:root[data-accent="rose"] { --accent: #a34f6c; }
+
+@theme {
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, "Segoe UI", "Malgun Gothic", sans-serif;
+  --font-display: "Outfit", "Pretendard Variable", Pretendard, sans-serif;
+  --color-fg: var(--text);
+  --color-muted: var(--text-muted);
+  --color-dim: var(--text-dim);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-primary: var(--primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-violet: var(--violet);
+  --color-cyan: var(--cyan);
+  --color-blue: var(--blue);
+  --color-glass: var(--glass);
+  --color-glass-strong: var(--glass-strong);
+  --color-glass-soft: var(--glass-soft);
+  /* 이전 토큰 이름 호환(공통 컴포넌트가 사용) */
+  --color-s1: var(--glass);
+  --color-s2: var(--glass-soft);
+  --color-s3: rgba(255, 255, 255, 0.6);
+  --color-s4: rgba(36, 56, 86, 0.1);
+  --color-line: var(--hair);
+  --color-line-strong: var(--hair-strong);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  /* 흐린 블루그레이 배경: 사진 대신 겹친 그라데이션으로 직접 구성(외부 이미지 없음) */
+  background:
+    radial-gradient(900px 600px at 12% 8%, rgba(255, 255, 255, 0.85), transparent 60%),
+    radial-gradient(700px 520px at 88% 18%, color-mix(in oklab, var(--bg-3) 70%, transparent), transparent 65%),
+    radial-gradient(800px 700px at 70% 95%, color-mix(in oklab, var(--bg-3) 55%, transparent), transparent 65%),
+    radial-gradient(600px 500px at 20% 85%, rgba(255, 255, 255, 0.6), transparent 60%),
+    linear-gradient(160deg, var(--bg-1), var(--bg-2));
+  background-attachment: fixed;
+}
+
+/* 유리 면 */
+.glass,
+.surface {
+  background: var(--glass);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  box-shadow: var(--glass-shadow), inset 0 0 0 1px var(--glass-line);
+}
+.glass-soft {
+  background: var(--glass-soft);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+/* 강조 카드: 화면당 하나만 */
+.steel {
+  background: linear-gradient(135deg, var(--steel-a), var(--steel-b));
+  color: #fff;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset, 0 20px 40px -20px rgba(36, 56, 86, 0.5);
+}
+.steel .text-muted, .steel .text-dim { color: rgba(255, 255, 255, 0.72); }
+
+/* 숫자: Outfit Light + tabular. 단위·소수부는 .unit 으로 작게 */
+.num,
+.font-display {
+  font-family: var(--font-display);
+  font-feature-settings: "tnum" 1;
+  letter-spacing: -0.01em;
+}
+.num .unit { font-size: 0.6em; margin-left: 0.12em; opacity: 0.6; font-family: var(--font-sans); font-weight: 400; }
+
+.t-page { font-family: var(--font-display); font-size: 30px; line-height: 1.15; font-weight: 300; letter-spacing: -0.02em; }
+.t-label { font-size: 11.5px; color: var(--text-dim); }
+
+/* 기본 키보드 포커스 표시. base 레이어에 두어 컴포넌트가 outline-none 등으로 덮어쓸 수 있게 한다
+   (레이어 밖에 두면 유틸리티보다 우선해 둥근 검색창 안에 네모 테두리가 겹쳐 그려졌다) */
+@layer base {
+  .focus-ring:focus-visible,
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid color-mix(in oklab, var(--primary) 60%, transparent);
+    outline-offset: 2px;
+  }
+}
+
+/* 슬라이더: 얇은 트랙 + 흰 원형 손잡이 */
+input[type="range"].instrument {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+  --p: 50%;
+}
+input[type="range"].instrument::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent) 0 var(--p), rgba(36, 56, 86, 0.12) var(--p) 100%);
+}
+input[type="range"].instrument::-moz-range-track { height: 3px; border-radius: 99px; background: rgba(36, 56, 86, 0.12); }
+input[type="range"].instrument::-moz-range-progress { height: 3px; border-radius: 99px; background: var(--accent); }
+input[type="range"].instrument::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: -6.5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(36, 56, 86, 0.18), 0 2px 6px rgba(36, 56, 86, 0.25);
+}
+input[type="range"].instrument::-moz-range-thumb { width: 16px; height: 16px; border: 0; border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px rgba(36, 56, 86, 0.18), 0 2px 6px rgba(36, 56, 86, 0.25); }
+input[type="checkbox"] { accent-color: var(--primary); }
+
+* { scrollbar-width: thin; scrollbar-color: rgba(36, 56, 86, 0.18) transparent; }
+
+/* React Flow 테마 정합 */
+.react-flow {
+  --xy-background-color: transparent;
+  --xy-minimap-background-color: rgba(255, 255, 255, 0.7);
+  --xy-minimap-mask-background-color: rgba(220, 228, 238, 0.6);
+  --xy-controls-button-background-color: rgba(255, 255, 255, 0.8);
+  --xy-controls-button-background-color-hover: #fff;
+  --xy-controls-button-color: var(--text-muted);
+  --xy-controls-button-color-hover: var(--text);
+  --xy-controls-button-border-color: var(--hair);
+  --xy-edge-stroke: rgba(36, 56, 86, 0.22);
+  --xy-edge-label-background-color: rgba(255, 255, 255, 0.85);
+  --xy-edge-label-color: var(--text-dim);
+}
+.react-flow__controls { box-shadow: var(--pill-shadow); border-radius: 14px; overflow: hidden; }
+.react-flow__minimap { border-radius: 14px; box-shadow: var(--glass-shadow); }
+.react-flow__edge-path { stroke: rgba(36, 56, 86, 0.22); stroke-width: 1.3; }
+.react-flow__edge.highlighted .react-flow__edge-path,
+.react-flow__edge.selected .react-flow__edge-path { stroke: var(--accent); stroke-width: 1.8; }
+.react-flow__edge.traced .react-flow__edge-path { stroke: var(--accent); stroke-width: 2.2; }
+.react-flow__edge-text { font-size: 10.5px; }
+.react-flow__handle { width: 6px; height: 6px; min-width: 0; min-height: 0; background: #fff; border: 1px solid rgba(36, 56, 86, 0.2); }
+.react-flow__attribution { background: rgba(255, 255, 255, 0.55) !important; border-radius: 8px 0 0 0; padding: 1px 6px !important; font-size: 9.5px; }
+.react-flow__attribution a { color: var(--text-dim) !important; }
+
+/* 인쇄(보고서 PDF 저장) */
+@media print {
+  @page { size: A4; margin: 14mm; }
+  body { background: #fff !important; color: #111 !important; }
+  .no-print { display: none !important; }
+  .print-area { color: #111 !important; box-shadow: none !important; backdrop-filter: none !important; }
+  .print-area * { color: #111 !important; border-color: #ccc !important; background: transparent !important; box-shadow: none !important; }
+  .print-break { break-before: page; }
+  .print-avoid { break-inside: avoid; }
+  /* 화면용 고정 높이·잘라내기를 풀어 여러 쪽으로 이어지게 한다 */
+  html, body, #root { height: auto !important; overflow: visible !important; }
+  .app-root { height: auto !important; padding: 0 !important; }
+  .app-frame { height: auto !important; overflow: visible !important; display: block !important; border-radius: 0 !important; background: none !important; box-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  main { overflow: visible !important; height: auto !important; padding-bottom: 0 !important; }
+  .page-header { display: none !important; }
+  .print-area { padding: 0 !important; border-radius: 0 !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes thread-flow { from { stroke-dashoffset: 24; } to { stroke-dashoffset: 0; } }
+.thread-flow { stroke-dasharray: 4 8; animation: thread-flow 1.6s linear infinite; }
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+.pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
+
+/* 로딩 자리 표시 */
+.skeleton {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.7) 45%, rgba(255, 255, 255, 0.35) 90%);
+  background-size: 200% 100%;
+  animation: skeleton-wave 1.4s ease-in-out infinite;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+@keyframes skeleton-wave { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+
+/* 가로 스크롤 목록의 오른쪽 끝 흐림(더 있음을 알림) */
+.scroll-fade-x { mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent 100%); }

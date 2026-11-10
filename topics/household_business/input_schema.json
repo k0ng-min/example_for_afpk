@@ -1,0 +1,3 @@
+[
+  { "key": "business_months_of_cover", "label": "사업 운영자금 목표(운영비 대비)", "unit": "개월", "min": 0, "max": 24, "default": 3, "description": "사업 완충자금 목표 참고값" }
+]

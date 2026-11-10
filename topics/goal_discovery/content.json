@@ -1,0 +1,41 @@
+{
+  "heroTitle": "처음 말한 목표가, 진짜 목표일까요?",
+  "heroSubtitle": "선택 상황 질문과 시뮬레이션으로 목표 우선순위를 반증하고, 변경 전후 계획을 나란히 비교합니다.",
+  "intro": "목표 반증 인터뷰는 고객이 처음 제시한 목표를 그대로 받아들이지 않고, '이 목표가 늦어지면 무엇을 잃는가'를 묻는 질문과 계산으로 실제 우선순위를 찾아갑니다.",
+  "problemStatement": "고객 D는 MBA·결혼·자동차 순으로 목표를 말했지만, 12개월 내 자동차 구입은 현재 순서로는 달성되지 않습니다. 고객이 진짜로 포기할 수 없는 목표가 무엇인지 확인해야 합니다.",
+  "analysisQuestions": [
+    "자동차 구입이 1년 늦어지면 구체적으로 무엇을 잃게 되나요?",
+    "MBA를 2년 미룬다면 커리어에 어떤 영향이 있나요?",
+    "결혼 시점은 고객 혼자 결정할 수 있는 목표인가요?",
+    "세 목표 중 하나만 지킬 수 있다면 무엇을 선택하겠습니까?",
+    "목표 순서를 바꾸면 각 목표의 달성 시점은 어떻게 달라지나요?"
+  ],
+  "stageDescriptions": [
+    "고객이 처음 말한 목표를 판단 없이 기록합니다.",
+    "목표별 금액·기한과 소득·자산 자료를 수집합니다.",
+    "현재 순서로 목표별 달성 가능성을 계산합니다.",
+    "반증 질문 결과를 반영한 우선순위 시나리오를 비교합니다.",
+    "확정된 우선순위로 목표별 자동이체를 실행합니다.",
+    "생애 이벤트 변화 시 우선순위 인터뷰를 다시 진행합니다."
+  ],
+  "insightsHeading": "목표 충돌 발견",
+  "reportTitle": "목표 반증 인터뷰 — 우선순위 재설계 보고서",
+  "reportSections": [
+    { "id": "summary", "title": "고객 요약과 처음 제시한 목표" },
+    { "id": "goals", "title": "반증 인터뷰 결과" },
+    { "id": "status", "title": "재무상태와 저축 여력" },
+    { "id": "risks", "title": "목표 충돌 분석" },
+    { "id": "scenarios", "title": "우선순위 변경 전후 비교" },
+    { "id": "recommendations", "title": "권고 우선순위" },
+    { "id": "verification", "title": "AI 해석 검증" },
+    { "id": "actions", "title": "목표별 실행 계획" },
+    { "id": "review", "title": "재인터뷰 조건" }
+  ],
+  "actionTemplates": [
+    { "id": "act_interview", "title": "반증 인터뷰 2차 진행(선택 상황 질문)", "priority": 1, "dueMonth": 1, "amount": 0, "reviewCondition": "고객 답변이 처음 목표와 충돌할 때" },
+    { "id": "act_accounts", "title": "목표별 계좌 분리", "priority": 1, "dueMonth": 1, "amount": 0, "reviewCondition": "목표 순서 변경 시" },
+    { "id": "act_auto", "title": "1순위 목표 자동이체 설정", "priority": 2, "dueMonth": 1, "amount": 1200000, "reviewCondition": "소득 변동 시" },
+    { "id": "act_loan", "title": "학자금 대출 상환 일정 확인", "priority": 3, "dueMonth": 3, "amount": 200000, "reviewCondition": "MBA 진학 확정 시" }
+  ],
+  "disclaimer": "고객 D는 합성 사례이며, 인터뷰 질문은 고객의 의사결정을 돕는 도구일 뿐 고객의 선택을 대신하지 않습니다."
+}

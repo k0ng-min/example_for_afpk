@@ -1,0 +1,7 @@
+{
+  "charts": ["cash_balance", "monthly_cashflow", "scenario_compare", "goal_timeline", "net_worth"],
+  "kpis": ["monthly_surplus", "emergency_fund_months_x10", "min_cash", "primary_goal_achieved_month"],
+  "heroMotif": "care_wave",
+  "signatureTitle": "돌봄 위기 타임라인",
+  "signatureDescription": "돌봄 발생 시점 전후의 현금 잔액 변화와 긴급 대응 구간"
+}

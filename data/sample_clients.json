@@ -1,0 +1,630 @@
+[
+  {
+    "id": "client_a",
+    "name": "고객 A (합성)",
+    "age": 27,
+    "occupation": "직장인 (IT 기업 3년차)",
+    "familySituation": "부모님께 매월 생활비 지원, 현재 부모님 집 근처 원룸 월세 거주",
+    "topicId": "family_commitment",
+    "synthetic": true,
+    "monthlyIncome": 3200000,
+    "fixedExpenses": 800000,
+    "variableExpenses": 550000,
+    "familySupport": 500000,
+    "cashAssets": 6500000,
+    "investmentAssets": 1200000,
+    "otherAssets": 10000000,
+    "liabilities": [
+      {
+        "id": "loan_a1",
+        "name": "학자금 대출",
+        "kind": "household",
+        "balance": 6000000,
+        "annualRateBps": 170,
+        "monthlyPayment": 150000
+      },
+      {
+        "id": "loan_a2",
+        "name": "신용대출",
+        "kind": "household",
+        "balance": 3000000,
+        "annualRateBps": 720,
+        "monthlyPayment": 100000
+      }
+    ],
+    "goals": [
+      {
+        "id": "goal_a1",
+        "name": "3년 내 주거 독립 자금",
+        "targetAmount": 30000000,
+        "targetMonth": 36,
+        "priority": 1,
+        "category": "housing"
+      },
+      {
+        "id": "goal_a2",
+        "name": "경력 개발(자격증·교육)",
+        "targetAmount": 5000000,
+        "targetMonth": 24,
+        "priority": 2,
+        "category": "career"
+      },
+      {
+        "id": "goal_a3",
+        "name": "부모님 의료비 대비금",
+        "targetAmount": 3000000,
+        "targetMonth": 18,
+        "priority": 3,
+        "category": "care"
+      }
+    ],
+    "business": null,
+    "emergencyFundTargetMonths": 3,
+    "pattern": {
+      "startCalendarMonth": 11,
+      "variableExpenseSeasonBps": [
+        300,
+        2200,
+        -900,
+        -700,
+        900,
+        -1000,
+        800,
+        1500,
+        2000,
+        -800,
+        0,
+        1600
+      ],
+      "annualInflows": [
+        {
+          "name": "성과급",
+          "calendarMonth": 2,
+          "amount": 2400000
+        },
+        {
+          "name": "연말정산 환급",
+          "calendarMonth": 3,
+          "amount": 280000
+        },
+        {
+          "name": "명절 상여",
+          "calendarMonth": 9,
+          "amount": 500000
+        }
+      ],
+      "annualOutflows": [
+        {
+          "name": "설 명절 부모님 용돈",
+          "calendarMonth": 2,
+          "amount": 400000
+        },
+        {
+          "name": "추석 부모님 용돈",
+          "calendarMonth": 9,
+          "amount": 400000
+        },
+        {
+          "name": "여름 휴가",
+          "calendarMonth": 8,
+          "amount": 900000
+        },
+        {
+          "name": "연간 구독·보험 갱신",
+          "calendarMonth": 3,
+          "amount": 240000
+        },
+        {
+          "name": "부모님 생신",
+          "calendarMonth": 6,
+          "amount": 300000
+        }
+      ],
+      "annualIncomeGrowthBps": 350,
+      "annualExpenseGrowthBps": 250
+    },
+    "extensions": {
+      "family_support_cap": 400000,
+      "family_members_supported": 2
+    },
+    "assumptions": [
+      "합성 예시: 월 생활비 1,350,000원을 고정 800,000원 / 변동 550,000원으로 분할 가정",
+      "부채 9,000,000원을 학자금 6,000,000원(연 1.7%)·신용대출 3,000,000원(연 7.2%)으로 분할 가정, 월 상환 합계 250,000원",
+      "원룸 월세 보증금 10,000,000원, 적립식 투자 1,200,000원 가정(원 자료에 없음)",
+      "성과급 2월 2,400,000원·명절 상여 9월 500,000원·연말정산 환급 3월 280,000원 가정",
+      "연 소득 인상 3.5%, 생활비 상승 2.5% 가정. 변동지출은 명절·휴가철에 늘어나는 계절성 가정",
+      "주거 독립 목표액 30,000,000원(보증금·이사비) 가정"
+    ],
+    "notes": "가족 부양과 개인 목표의 충돌 사례. 실제 고객이 아닌 합성 데이터."
+  },
+  {
+    "id": "client_b",
+    "name": "고객 B (합성)",
+    "age": 34,
+    "occupation": "소규모 사업자 (카페 운영)",
+    "familySituation": "배우자와 2인 가구, 가계 소득은 사업 대표자 인출에 의존",
+    "topicId": "household_business",
+    "synthetic": true,
+    "monthlyIncome": 4000000,
+    "fixedExpenses": 1700000,
+    "variableExpenses": 1100000,
+    "familySupport": 0,
+    "cashAssets": 8000000,
+    "investmentAssets": 3000000,
+    "otherAssets": 50000000,
+    "liabilities": [
+      {
+        "id": "loan_b1",
+        "name": "사업자 운전자금 대출",
+        "kind": "business",
+        "balance": 20000000,
+        "annualRateBps": 650,
+        "monthlyPayment": 450000
+      },
+      {
+        "id": "loan_b2",
+        "name": "자동차 할부",
+        "kind": "household",
+        "balance": 6000000,
+        "annualRateBps": 590,
+        "monthlyPayment": 280000
+      }
+    ],
+    "goals": [
+      {
+        "id": "goal_b1",
+        "name": "가계 생활 안정 자금",
+        "targetAmount": 5000000,
+        "targetMonth": 12,
+        "priority": 1,
+        "category": "stability"
+      },
+      {
+        "id": "goal_b2",
+        "name": "사업 재투자 자금(설비 교체)",
+        "targetAmount": 10000000,
+        "targetMonth": 24,
+        "priority": 2,
+        "category": "business"
+      },
+      {
+        "id": "goal_b3",
+        "name": "노후 대비 개인연금 시작",
+        "targetAmount": 6000000,
+        "targetMonth": 36,
+        "priority": 3,
+        "category": "retirement"
+      }
+    ],
+    "business": {
+      "monthlyRevenue": 12000000,
+      "monthlyCost": 7400000,
+      "operatingCash": 15000000,
+      "ownerDraw": 4000000
+    },
+    "emergencyFundTargetMonths": 6,
+    "pattern": {
+      "startCalendarMonth": 11,
+      "variableExpenseSeasonBps": [
+        500,
+        2600,
+        -800,
+        -600,
+        1500,
+        -900,
+        1000,
+        1800,
+        2400,
+        -700,
+        0,
+        2000
+      ],
+      "businessRevenueSeasonBps": [
+        -1600,
+        -1300,
+        -300,
+        300,
+        800,
+        1300,
+        1900,
+        2100,
+        400,
+        200,
+        0,
+        500
+      ],
+      "annualInflows": [
+        {
+          "name": "부가세 정산 차액",
+          "calendarMonth": 8,
+          "amount": 350000
+        }
+      ],
+      "annualOutflows": [
+        {
+          "name": "종합소득세",
+          "calendarMonth": 5,
+          "amount": 1200000
+        },
+        {
+          "name": "자동차보험",
+          "calendarMonth": 3,
+          "amount": 900000
+        },
+        {
+          "name": "설 명절 양가",
+          "calendarMonth": 2,
+          "amount": 600000
+        },
+        {
+          "name": "추석 양가",
+          "calendarMonth": 9,
+          "amount": 600000
+        },
+        {
+          "name": "자동차세(상반기)",
+          "calendarMonth": 6,
+          "amount": 250000
+        },
+        {
+          "name": "자동차세(하반기)",
+          "calendarMonth": 12,
+          "amount": 250000
+        }
+      ],
+      "annualIncomeGrowthBps": 0,
+      "annualExpenseGrowthBps": 250
+    },
+    "extensions": {
+      "business_months_of_cover": 3
+    },
+    "assumptions": [
+      "가계 월 지출 2,800,000원을 고정 1,700,000원 / 변동 1,100,000원으로 분할 가정",
+      "가계 현금성 자산 8,000,000원, 투자 3,000,000원, 반전세 보증금 50,000,000원 가정(원 자료에 없음)",
+      "사업 월 매출 12,000,000원(평균), 여름 성수기 최대 +21%·겨울 비수기 −16%의 카페 계절성 가정",
+      "사업 운영비 7,400,000원, 대표자 인출 4,000,000원 고정 가정",
+      "사업부채 20,000,000원 연 6.5%, 월 450,000원 상환 / 자동차 할부 6,000,000원 연 5.9% 가정",
+      "종합소득세 5월 1,200,000원 등 연간 정기 지출 가정, 사업자는 비상예비자금 6개월분 목표"
+    ],
+    "notes": "사업 위험이 가계로 전파되는 사례. 실제 고객이 아닌 합성 데이터."
+  },
+  {
+    "id": "client_c",
+    "name": "고객 C (합성)",
+    "age": 29,
+    "occupation": "직장인 (제조업 사무직)",
+    "familySituation": "부모님 중 한 분의 갑작스러운 돌봄 필요 발생 예정, 형제 없음",
+    "topicId": "care_crisis",
+    "synthetic": true,
+    "monthlyIncome": 3000000,
+    "fixedExpenses": 1000000,
+    "variableExpenses": 700000,
+    "familySupport": 0,
+    "cashAssets": 5000000,
+    "investmentAssets": 800000,
+    "otherAssets": 5000000,
+    "liabilities": [
+      {
+        "id": "loan_c1",
+        "name": "마이너스통장",
+        "kind": "household",
+        "balance": 1500000,
+        "annualRateBps": 680,
+        "monthlyPayment": 100000
+      }
+    ],
+    "goals": [
+      {
+        "id": "goal_c1",
+        "name": "돌봄 초기 긴급자금",
+        "targetAmount": 3000000,
+        "targetMonth": 6,
+        "priority": 1,
+        "category": "emergency"
+      },
+      {
+        "id": "goal_c2",
+        "name": "돌봄 장기화 대비 자금",
+        "targetAmount": 10000000,
+        "targetMonth": 24,
+        "priority": 2,
+        "category": "stability"
+      },
+      {
+        "id": "goal_c3",
+        "name": "본인 경력 유지(재교육)",
+        "targetAmount": 2000000,
+        "targetMonth": 30,
+        "priority": 3,
+        "category": "career"
+      }
+    ],
+    "business": null,
+    "emergencyFundTargetMonths": 3,
+    "pattern": {
+      "startCalendarMonth": 11,
+      "variableExpenseSeasonBps": [
+        200,
+        1500,
+        -600,
+        -500,
+        600,
+        -700,
+        500,
+        900,
+        1400,
+        -500,
+        0,
+        1200
+      ],
+      "annualInflows": [
+        {
+          "name": "설 명절 상여",
+          "calendarMonth": 2,
+          "amount": 1500000
+        },
+        {
+          "name": "추석 명절 상여",
+          "calendarMonth": 9,
+          "amount": 1500000
+        },
+        {
+          "name": "연말정산 환급",
+          "calendarMonth": 3,
+          "amount": 150000
+        }
+      ],
+      "annualOutflows": [
+        {
+          "name": "자동차보험",
+          "calendarMonth": 6,
+          "amount": 650000
+        },
+        {
+          "name": "부모님 정기검진",
+          "calendarMonth": 4,
+          "amount": 400000
+        },
+        {
+          "name": "경조사(봄)",
+          "calendarMonth": 5,
+          "amount": 300000
+        },
+        {
+          "name": "경조사(가을)",
+          "calendarMonth": 10,
+          "amount": 300000
+        }
+      ],
+      "annualIncomeGrowthBps": 300,
+      "annualExpenseGrowthBps": 250
+    },
+    "extensions": {
+      "care_hours_per_week": 20,
+      "care_start_month": 3
+    },
+    "assumptions": [
+      "월 생활비 1,700,000원을 고정 1,000,000원 / 변동 700,000원으로 분할 가정",
+      "마이너스통장 1,500,000원 연 6.8%, 투자 800,000원, 원룸 보증금 5,000,000원 가정(원 자료에 없음)",
+      "명절 상여 2월·9월 각 1,500,000원, 연 소득 인상 3% 가정",
+      "돌봄 발생 시점 3개월 차 가정, 발생 후 소득 2,300,000원(−700,000원), 추가 돌봄비 월 450,000원"
+    ],
+    "notes": "돌봄 위기 72시간 사례. 기본값은 돌봄 발생 전 상태이며 돌봄은 시나리오 이벤트로 반영. 합성 데이터."
+  },
+  {
+    "id": "client_d",
+    "name": "고객 D (합성)",
+    "age": 31,
+    "occupation": "직장인 (마케팅 6년차)",
+    "familySituation": "미혼, 2년 내 결혼 계획 언급, 해외 MBA 진학 희망",
+    "topicId": "goal_discovery",
+    "synthetic": true,
+    "monthlyIncome": 3800000,
+    "fixedExpenses": 1200000,
+    "variableExpenses": 900000,
+    "familySupport": 0,
+    "cashAssets": 12000000,
+    "investmentAssets": 5000000,
+    "otherAssets": 20000000,
+    "liabilities": [
+      {
+        "id": "loan_d1",
+        "name": "학자금 대출",
+        "kind": "household",
+        "balance": 6000000,
+        "annualRateBps": 400,
+        "monthlyPayment": 200000
+      }
+    ],
+    "goals": [
+      {
+        "id": "goal_d1",
+        "name": "해외 MBA 학비",
+        "targetAmount": 40000000,
+        "targetMonth": 36,
+        "priority": 1,
+        "category": "education"
+      },
+      {
+        "id": "goal_d2",
+        "name": "결혼 자금",
+        "targetAmount": 30000000,
+        "targetMonth": 48,
+        "priority": 2,
+        "category": "life_event"
+      },
+      {
+        "id": "goal_d3",
+        "name": "자동차 구입",
+        "targetAmount": 15000000,
+        "targetMonth": 12,
+        "priority": 3,
+        "category": "consumption"
+      }
+    ],
+    "business": null,
+    "emergencyFundTargetMonths": 3,
+    "pattern": {
+      "startCalendarMonth": 11,
+      "variableExpenseSeasonBps": [
+        300,
+        2200,
+        -900,
+        -700,
+        900,
+        -1000,
+        800,
+        1500,
+        2000,
+        -800,
+        0,
+        1600
+      ],
+      "annualInflows": [
+        {
+          "name": "연간 성과급",
+          "calendarMonth": 3,
+          "amount": 4000000
+        },
+        {
+          "name": "연말정산 환급",
+          "calendarMonth": 3,
+          "amount": 350000
+        }
+      ],
+      "annualOutflows": [
+        {
+          "name": "해외여행",
+          "calendarMonth": 7,
+          "amount": 2500000
+        },
+        {
+          "name": "결혼식 축의금(봄)",
+          "calendarMonth": 5,
+          "amount": 500000
+        },
+        {
+          "name": "결혼식 축의금(가을)",
+          "calendarMonth": 10,
+          "amount": 500000
+        },
+        {
+          "name": "어학시험·자기계발",
+          "calendarMonth": 1,
+          "amount": 400000
+        }
+      ],
+      "annualIncomeGrowthBps": 400,
+      "annualExpenseGrowthBps": 250
+    },
+    "extensions": {},
+    "assumptions": [
+      "고객이 처음 제시한 목표 순서(MBA → 결혼 → 자동차)를 우선순위로 입력",
+      "학자금 대출 연 4.0%, 전세 보증금 본인 부담분 20,000,000원 가정",
+      "연간 성과급 3월 4,000,000원, 연 소득 인상 4% 가정",
+      "투자자산 기대수익률은 시나리오 가정값(기본 연 3%) 사용"
+    ],
+    "notes": "목표 반증 인터뷰 사례: 처음 제시한 목표와 실제 우선순위가 다를 수 있음. 합성 데이터."
+  },
+  {
+    "id": "client_e",
+    "name": "고객 E (합성)",
+    "age": 26,
+    "occupation": "사회초년생 (공공기관 계약직)",
+    "familySituation": "1인 가구, AI 재무설계 앱의 추천안을 받아본 상태",
+    "topicId": "ai_verification",
+    "synthetic": true,
+    "monthlyIncome": 2700000,
+    "fixedExpenses": 900000,
+    "variableExpenses": 600000,
+    "familySupport": 0,
+    "cashAssets": 3000000,
+    "investmentAssets": 2000000,
+    "otherAssets": 3000000,
+    "liabilities": [
+      {
+        "id": "loan_e1",
+        "name": "카드론",
+        "kind": "household",
+        "balance": 4000000,
+        "annualRateBps": 1450,
+        "monthlyPayment": 200000
+      }
+    ],
+    "goals": [
+      {
+        "id": "goal_e1",
+        "name": "비상예비자금 확보",
+        "targetAmount": 3000000,
+        "targetMonth": 12,
+        "priority": 1,
+        "category": "emergency"
+      },
+      {
+        "id": "goal_e2",
+        "name": "정규직 전환 대비 이직 준비금",
+        "targetAmount": 4000000,
+        "targetMonth": 24,
+        "priority": 2,
+        "category": "career"
+      }
+    ],
+    "business": null,
+    "emergencyFundTargetMonths": 3,
+    "pattern": {
+      "startCalendarMonth": 11,
+      "variableExpenseSeasonBps": [
+        300,
+        2200,
+        -900,
+        -700,
+        900,
+        -1000,
+        800,
+        1500,
+        2000,
+        -800,
+        0,
+        1600
+      ],
+      "annualInflows": [
+        {
+          "name": "연말정산 환급",
+          "calendarMonth": 3,
+          "amount": 200000
+        }
+      ],
+      "annualOutflows": [
+        {
+          "name": "설 명절",
+          "calendarMonth": 2,
+          "amount": 250000
+        },
+        {
+          "name": "추석",
+          "calendarMonth": 9,
+          "amount": 250000
+        },
+        {
+          "name": "여름 휴가",
+          "calendarMonth": 8,
+          "amount": 600000
+        },
+        {
+          "name": "연간 구독 갱신",
+          "calendarMonth": 1,
+          "amount": 150000
+        }
+      ],
+      "annualIncomeGrowthBps": 0,
+      "annualExpenseGrowthBps": 250
+    },
+    "extensions": {},
+    "assumptions": [
+      "카드론 4,000,000원 연 14.5%, 월 200,000원 상환 가정",
+      "원룸 보증금 3,000,000원 가정, 계약직이므로 연 소득 인상 0% 가정",
+      "AI 초안 주장은 검증 데모를 위한 합성 예시이며 일부 의도적 오류 포함"
+    ],
+    "notes": "AI 재무설계 심사법정 사례. 합성 데이터."
+  }
+]

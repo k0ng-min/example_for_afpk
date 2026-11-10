@@ -1,0 +1,25 @@
+{
+  "nodes": [
+    { "id": "n_client", "kind": "client", "label": "고객 A · 27세 직장인", "detail": "세후 320만원, 부모님 생활비 지원 중", "x": 0, "y": 240, "metric": "monthly_income" },
+    { "id": "n_support", "kind": "risk", "label": "가족 지원 약속", "detail": "매월 고정적으로 나가는 가족 지원액의 소득 대비 비중", "x": 330, "y": 40, "metric": "family_support_ratio_bps" },
+    { "id": "n_flow", "kind": "analysis", "label": "현금흐름 배분", "detail": "소득이 생활비·가족지원·부채·저축으로 어떻게 나뉘는가", "x": 330, "y": 240, "metric": "monthly_surplus" },
+    { "id": "n_goal_house", "kind": "goal", "label": "주거 독립 3년", "detail": "보증금·이사비 3,000만원(가정)", "x": 330, "y": 440, "metric": "primary_goal_achieved_month" },
+    { "id": "n_conflict", "kind": "risk", "label": "목표 간 충돌", "detail": "기한 내 달성 가능한 목표 수", "x": 660, "y": 340, "metric": "goals_on_track" },
+    { "id": "n_scn_cap", "kind": "scenario", "label": "지원 상한 시나리오", "detail": "가족과 합의한 상한으로 지원액 조정", "x": 660, "y": 120 },
+    { "id": "n_ai", "kind": "ai_proposal", "label": "AI 제안: 지원 상한 + 목표 자동이체", "detail": "지원을 끊는 것이 아니라 상한과 기간을 합의하는 대안", "x": 990, "y": 120 },
+    { "id": "n_evidence", "kind": "evidence", "label": "검증: 필요 월저축액", "detail": "1순위 목표 달성에 필요한 월 저축액을 독립 계산", "x": 990, "y": 340, "metric": "primary_goal_required_saving" },
+    { "id": "n_action", "kind": "action", "label": "가족 합의 · 자동이체", "detail": "지원 상한 합의, 목표 계좌 자동이체", "x": 1320, "y": 230 }
+  ],
+  "edges": [
+    { "id": "e1", "source": "n_client", "target": "n_support", "label": "약속" },
+    { "id": "e2", "source": "n_client", "target": "n_flow", "label": "소득" },
+    { "id": "e3", "source": "n_client", "target": "n_goal_house", "label": "목표" },
+    { "id": "e4", "source": "n_support", "target": "n_conflict", "label": "압박" },
+    { "id": "e5", "source": "n_goal_house", "target": "n_conflict", "label": "" },
+    { "id": "e6", "source": "n_flow", "target": "n_scn_cap", "label": "조정" },
+    { "id": "e7", "source": "n_scn_cap", "target": "n_ai", "label": "대안" },
+    { "id": "e8", "source": "n_conflict", "target": "n_evidence", "label": "검증" },
+    { "id": "e9", "source": "n_ai", "target": "n_evidence", "label": "주장" },
+    { "id": "e10", "source": "n_evidence", "target": "n_action", "label": "승인" }
+  ]
+}

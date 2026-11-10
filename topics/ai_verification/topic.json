@@ -1,0 +1,21 @@
+{
+  "id": "ai_verification",
+  "name": "AI 재무설계 심사법정",
+  "serviceName": "FINOVA · AI 심사법정",
+  "tagline": "AI가 만든 재무설계안을 법정처럼 심리합니다 — 주장, 반론, 계산, 판결",
+  "problem": "AI가 생성한 재무설계안은 그럴듯하지만 계산 오류, 근거 없는 수익률 가정, 확인되지 않은 제도 언급이 섞여 있을 수 있습니다. 사람이 검증하지 않은 AI 제안을 그대로 실행하는 것이 위험의 핵심입니다.",
+  "targetCustomer": "AI 재무설계 추천을 받아본 사회초년생",
+  "primaryClientId": "client_e",
+  "signatureVisual": "verification_court",
+  "accent": "blue",
+  "icon": "scale",
+  "modules": ["core_cashflow", "claim_verification", "goal_priority"],
+  "agents": [
+    { "agent": "financial_analyst", "focus": "AI 초안이 사용한 입력 데이터 재확인" },
+    { "agent": "critic", "focus": "AI 주장별 반론 생성과 계산 검증" },
+    { "agent": "risk_detector", "focus": "수익률 보장·고금리 부채 방치 등 위험 주장 탐지" },
+    { "agent": "scenario_planner", "focus": "AI 초안 대비 수정안 시나리오 비교" },
+    { "agent": "report_writer", "focus": "수정 전후 비교와 인간 최종 판단 기록" }
+  ],
+  "requiresDevelopment": []
+}

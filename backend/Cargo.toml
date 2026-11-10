@@ -1,0 +1,34 @@
+[package]
+name = "finova-backend"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "finova"
+path = "src/lib.rs"
+
+[[bin]]
+name = "finova-server"
+path = "src/main.rs"
+
+[dependencies]
+axum = { version = "0.8", features = ["macros"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "signal"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rust_decimal = "1"
+sqlx = { version = "0.8", default-features = false, features = ["runtime-tokio", "sqlite", "macros", "migrate"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tower-http = { version = "0.6", features = ["cors", "fs", "trace", "limit"] }
+thiserror = "2"
+uuid = { version = "1", features = ["v4"] }
+dotenvy = "0.15"
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+# Gemini REST 호출(서버 측 전용). Windows 기본 TLS(schannel) 사용
+reqwest = { version = "0.12", default-features = false, features = ["json", "native-tls"] }
+
+[dev-dependencies]
+tower = { version = "0.5", features = ["util"] }
+http-body-util = "0.1"

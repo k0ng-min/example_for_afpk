@@ -1,0 +1,11 @@
+[
+  { "topic": "ai_verification", "claimId": "c_av_surplus", "expectedStatus": "error_found", "reason": "실제 월 순현금흐름 1,000,000원 vs 주장 1,200,000원" },
+  { "topic": "ai_verification", "claimId": "c_av_dsr", "expectedStatus": "verified", "reason": "200,000 / 2,700,000 = 7.41% (허용 오차 0.5%p)" },
+  { "topic": "ai_verification", "claimId": "c_av_emergency", "expectedStatus": "error_found", "reason": "3,000,000 / 1,700,000 = 1.8개월 vs 주장 2.0개월" },
+  { "topic": "ai_verification", "claimId": "c_av_return", "expectedStatus": "insufficient_evidence", "reason": "근거 지표 없음" },
+  { "topic": "ai_verification", "claimId": "c_av_interest", "expectedStatus": "needs_review", "reason": "주장에 수치 없음" },
+  { "topic": "family_commitment", "claimId": "c_fc_surplus", "expectedStatus": "verified", "reason": "3,200,000 − 1,350,000 − 500,000 − 250,000" },
+  { "topic": "family_commitment", "claimId": "c_fc_ratio", "expectedStatus": "error_found", "reason": "15.63% vs 15.00% (차이 63bp > 50bp)" },
+  { "topic": "household_business", "claimId": "c_hb_depleted", "expectedStatus": "verified", "reason": "매출 −20%와 겨울 비수기 계절성 반영 시 6개월 차 사업 현금 부족" },
+  { "topic": "care_crisis", "claimId": "c_cc_goal", "expectedStatus": "error_found", "reason": "돌봄 시나리오에서 긴급자금은 4개월 차(2월 명절 상여 반영) 달성 vs 주장 2개월 차" }
+]

@@ -1,0 +1,7 @@
+{
+  "charts": ["goal_timeline", "scenario_compare", "cash_balance", "monthly_cashflow", "net_worth"],
+  "kpis": ["goals_on_track", "goal_count", "primary_goal_achieved_month", "monthly_surplus"],
+  "heroMotif": "discovery",
+  "signatureTitle": "목표 우선순위 비교표",
+  "signatureDescription": "우선순위 변경 전후 목표별 달성 시점 비교"
+}

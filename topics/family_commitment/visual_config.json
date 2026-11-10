@@ -1,0 +1,7 @@
+{
+  "charts": ["monthly_cashflow", "cash_balance", "goal_timeline", "scenario_compare", "net_worth"],
+  "kpis": ["monthly_surplus", "family_support_ratio_bps", "primary_goal_achieved_month", "goals_on_track"],
+  "heroMotif": "commitment",
+  "signatureTitle": "가족 약속 흐름도",
+  "signatureDescription": "소득이 가족 약속·생활·부채·미래 목표로 배분되는 구조와 시나리오별 목표 달성 시점"
+}

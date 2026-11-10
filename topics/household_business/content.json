@@ -1,0 +1,40 @@
+{
+  "heroTitle": "사업의 위기가 가계로 번지기 전에",
+  "heroSubtitle": "매출이 줄면 언제 사업 현금이 바닥나고, 가계는 얼마를 대신 부담하게 되는지 전염 경로를 계산합니다.",
+  "intro": "가계·사업 전염 방화벽은 사업과 가계 현금흐름을 분리해 계산하고, 매출 감소 시나리오에서 위험이 가계로 전파되는 시점과 규모를 보여줍니다.",
+  "problemStatement": "고객 B의 가계 소득은 카페 대표자 인출에 전적으로 의존합니다. 매출이 20% 줄면 사업 운영자금이 수개월 내 소진되고, 이후 부족분이 가계 현금으로 메워지며 생활 안정 목표가 무너질 수 있습니다.",
+  "analysisQuestions": [
+    "매출이 20% 줄면 사업 현금은 몇 개월 차에 소진되는가?",
+    "가계는 사업 부족분을 얼마나 대신 부담하게 되는가?",
+    "가계 완충자금은 몇 개월을 버틸 수 있는가?",
+    "방화벽(이전 차단)을 설정하면 가계는 얼마나 안정되는가?"
+  ],
+  "stageDescriptions": [
+    "사업과 가계를 하나의 재무 단위로 볼지 분리할지 고객과 합의합니다.",
+    "사업 매출·운영비·부채와 가계 소득·지출 자료를 분리 수집합니다.",
+    "사업 현금 소진 시점과 가계 전염액을 계산합니다.",
+    "매출 감소 폭·방화벽·지출 절감 시나리오를 비교합니다.",
+    "계좌 분리와 가계 완충자금 예치를 실행합니다.",
+    "월 매출 추이를 점검하고 방화벽 발동 조건을 재검토합니다."
+  ],
+  "insightsHeading": "전염 경로 분석",
+  "reportTitle": "가계·사업 전염 방화벽 — 소규모 사업자 가계 안정 보고서",
+  "reportSections": [
+    { "id": "summary", "title": "고객 요약: 사업과 가계" },
+    { "id": "goals", "title": "가계 안정 목표" },
+    { "id": "status", "title": "사업·가계 현금흐름 분리 분석" },
+    { "id": "risks", "title": "위험 전파 경로" },
+    { "id": "scenarios", "title": "매출 감소 시나리오 비교" },
+    { "id": "recommendations", "title": "권고안: 방화벽과 완충자금" },
+    { "id": "verification", "title": "AI 분석 검증" },
+    { "id": "actions", "title": "가계 생활 안정 실행 계획" },
+    { "id": "review", "title": "매출 모니터링·재점검 조건" }
+  ],
+  "actionTemplates": [
+    { "id": "act_split", "title": "사업 계좌와 가계 계좌 분리", "priority": 1, "dueMonth": 1, "amount": 0, "reviewCondition": "사업 지출이 가계 계좌에서 결제될 때" },
+    { "id": "act_buffer", "title": "가계 생활비 6개월분 별도 예치", "priority": 1, "dueMonth": 6, "amount": 16800000, "reviewCondition": "가계 현금 커버리지 6개월 미만 시" },
+    { "id": "act_limit", "title": "가계→사업 이전 월 한도 설정", "priority": 2, "dueMonth": 2, "amount": 1000000, "reviewCondition": "2개월 연속 한도 도달 시" },
+    { "id": "act_revenue", "title": "월 매출 지표 점검(전년 동월 대비)", "priority": 2, "dueMonth": 1, "amount": 0, "reviewCondition": "매출 10% 이상 감소 2개월 지속 시" }
+  ],
+  "disclaimer": "고객 B와 사업 수치는 합성 예시이며 업종 평균이나 통계가 아닙니다. 매출 변화율은 가정값입니다."
+}

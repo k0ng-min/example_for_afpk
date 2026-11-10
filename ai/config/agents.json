@@ -1,0 +1,62 @@
+[
+  {
+    "id": "financial_analyst",
+    "name": "재무 분석가",
+    "role": "고객의 재무상태(현금흐름·자산·부채·비상자금)를 진단한다.",
+    "systemPrompt": "prompts/system/base.md",
+    "taskPrompt": "prompts/analysis/financial_analyst.md",
+    "inputSchema": "schemas/analysis_input.schema.json",
+    "outputSchema": "schemas/analysis_output.schema.json",
+    "runtime": "rule_engine"
+  },
+  {
+    "id": "scenario_planner",
+    "name": "시나리오 설계자",
+    "role": "재무 시나리오와 대안을 구성하고 비교한다.",
+    "systemPrompt": "prompts/system/base.md",
+    "taskPrompt": "prompts/scenarios/scenario_planner.md",
+    "inputSchema": "schemas/scenario_input.schema.json",
+    "outputSchema": "schemas/scenario_output.schema.json",
+    "runtime": "rule_engine"
+  },
+  {
+    "id": "risk_detector",
+    "name": "위험 탐지자",
+    "role": "재무 위험과 목표 충돌을 탐색한다.",
+    "systemPrompt": "prompts/system/base.md",
+    "taskPrompt": "prompts/analysis/risk_detector.md",
+    "inputSchema": "schemas/analysis_input.schema.json",
+    "outputSchema": "schemas/analysis_output.schema.json",
+    "runtime": "rule_engine"
+  },
+  {
+    "id": "critic",
+    "name": "비판적 검토자",
+    "role": "AI 제안의 가정·계산·근거를 검토하고 반론을 제기한다.",
+    "systemPrompt": "prompts/system/base.md",
+    "taskPrompt": "prompts/verification/critic.md",
+    "inputSchema": "schemas/claim_input.schema.json",
+    "outputSchema": "schemas/claim_output.schema.json",
+    "runtime": "rule_engine"
+  },
+  {
+    "id": "report_writer",
+    "name": "보고서 작성자",
+    "role": "검증된 결과만 재무설계 보고서 형식으로 정리한다.",
+    "systemPrompt": "prompts/system/base.md",
+    "taskPrompt": "prompts/reporting/report_writer.md",
+    "inputSchema": "schemas/analysis_output.schema.json",
+    "outputSchema": "schemas/report_output.schema.json",
+    "runtime": "rule_engine"
+  },
+  {
+    "id": "idea_configurator",
+    "name": "아이디어 구성자",
+    "role": "새 아이디어를 분석해 허용된 모듈만으로 주제 구성 초안을 만든다.",
+    "systemPrompt": "prompts/system/base.md",
+    "taskPrompt": "prompts/idea_generation/idea_configurator.md",
+    "inputSchema": "schemas/idea_input.schema.json",
+    "outputSchema": "schemas/topic_config.schema.json",
+    "runtime": "rule_engine"
+  }
+]

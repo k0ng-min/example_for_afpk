@@ -1,0 +1,5 @@
+{ "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object",
+  "required": ["claimId", "status", "method"],
+  "properties": { "claimId": { "type": "string" }, "status": { "enum": ["verified", "needs_review", "insufficient_evidence", "error_found", "corrected"] },
+    "claimedValue": { "type": ["integer", "null"] }, "computedValue": { "type": ["integer", "null"] }, "difference": { "type": ["integer", "null"] },
+    "tolerance": { "type": ["integer", "null"] }, "formula": { "type": ["string", "null"] }, "method": { "type": "string" } } }

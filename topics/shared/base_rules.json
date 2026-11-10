@@ -1,0 +1,9 @@
+[
+  { "id": "base_negative_cashflow", "metric": "monthly_surplus", "op": "lt", "threshold": 0, "severity": "critical", "title": "월 순현금흐름 적자", "message": "1개월 차 순현금흐름이 {value}로 적자입니다. 지출·지원 구조 조정이 최우선입니다." },
+  { "id": "base_low_savings", "metric": "savings_rate_bps", "op": "lt", "threshold": 1000, "severity": "warning", "title": "낮은 저축률", "message": "저축률이 {value}로 내부 점검 기준(10%)보다 낮습니다." },
+  { "id": "base_high_dsr", "metric": "debt_service_ratio_bps", "op": "gt", "threshold": 3000, "severity": "warning", "title": "부채상환 부담", "message": "소득 대비 부채상환비율이 {value}로 내부 점검 기준(30%)을 초과합니다. (법정 규제 기준이 아닌 분석용 가정)" },
+  { "id": "base_emergency_low", "metric": "emergency_fund_months_x10", "op": "lt", "threshold": 30, "severity": "warning", "title": "비상자금 부족", "message": "현재 현금으로 필수지출 {value}만 감당할 수 있습니다. 내부 기준은 3개월입니다." },
+  { "id": "base_cash_depleted", "metric": "cash_runway_month", "op": "present", "severity": "critical", "title": "현금 소진 예상", "message": "{value} 차에 현금성 자산이 소진됩니다." },
+  { "id": "base_goal_gap", "metric": "primary_goal_gap", "op": "lt", "threshold": 0, "severity": "warning", "title": "1순위 목표 부족", "message": "1순위 목표 시점에 {value}가 부족합니다." },
+  { "id": "base_negative_net_worth", "metric": "net_worth", "op": "lt", "threshold": 0, "severity": "warning", "title": "순자산 마이너스", "message": "현재 순자산이 {value}입니다." }
+]

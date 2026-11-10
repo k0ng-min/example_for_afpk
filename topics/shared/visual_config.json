@@ -1,0 +1,7 @@
+{
+  "charts": ["monthly_cashflow", "cash_balance", "assets_liabilities", "net_worth", "goal_timeline", "scenario_compare"],
+  "kpis": ["monthly_surplus", "savings_rate_bps", "emergency_fund_months_x10", "net_worth"],
+  "heroMotif": "orbit",
+  "signatureTitle": "시나리오 순자산 비교",
+  "signatureDescription": "주제 미확정 상태의 공통 시나리오 개요"
+}

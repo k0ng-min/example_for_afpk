@@ -1,0 +1,3 @@
+{ "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "required": ["insights"],
+  "properties": { "insights": { "type": "array", "items": { "type": "object", "required": ["title", "message", "severity"],
+    "properties": { "title": { "type": "string" }, "message": { "type": "string" }, "metric": { "type": ["string", "null"] }, "severity": { "enum": ["info", "warning", "critical"] } } } } } }

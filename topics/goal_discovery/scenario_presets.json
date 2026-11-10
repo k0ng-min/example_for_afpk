@@ -1,0 +1,16 @@
+[
+  { "id": "p_stated", "name": "처음 제시한 순서", "description": "MBA → 결혼 → 자동차", "color": "#3060a8", "adjustments": { "horizonMonths": 60 } },
+  { "id": "p_car_first", "name": "자동차 우선", "description": "인터뷰 결과 자동차가 실제 1순위인 경우", "color": "#b57d22", "adjustments": { "horizonMonths": 60, "goals": [
+    { "id": "goal_d3", "name": "자동차 구입", "targetAmount": 15000000, "targetMonth": 12, "priority": 1, "category": "consumption" },
+    { "id": "goal_d1", "name": "해외 MBA 학비", "targetAmount": 40000000, "targetMonth": 36, "priority": 2, "category": "education" },
+    { "id": "goal_d2", "name": "결혼 자금", "targetAmount": 30000000, "targetMonth": 48, "priority": 3, "category": "life_event" }
+  ] } },
+  { "id": "p_wedding_first", "name": "결혼 우선 · MBA 보류", "description": "결혼을 1순위로, MBA는 60개월로 연기", "color": "#7e60c6", "adjustments": { "horizonMonths": 60, "goals": [
+    { "id": "goal_d2", "name": "결혼 자금", "targetAmount": 30000000, "targetMonth": 36, "priority": 1, "category": "life_event" },
+    { "id": "goal_d1", "name": "해외 MBA 학비", "targetAmount": 40000000, "targetMonth": 60, "priority": 2, "category": "education" }
+  ] } },
+  { "id": "p_no_car", "name": "자동차 포기", "description": "자동차 목표를 제외", "color": "#20907a", "adjustments": { "horizonMonths": 60, "goals": [
+    { "id": "goal_d1", "name": "해외 MBA 학비", "targetAmount": 40000000, "targetMonth": 36, "priority": 1, "category": "education" },
+    { "id": "goal_d2", "name": "결혼 자금", "targetAmount": 30000000, "targetMonth": 48, "priority": 2, "category": "life_event" }
+  ] } }
+]

@@ -1,0 +1,41 @@
+{
+  "heroTitle": "돌봄이 시작된 72시간, 생활을 지키는 순서",
+  "heroSubtitle": "소득이 줄고 비용이 늘어나는 순간, 현금이 언제까지 버티는지와 무엇을 먼저 해야 하는지 보여줍니다.",
+  "intro": "돌봄 시작 72시간은 갑작스러운 가족 돌봄이 소득과 지출에 미치는 충격을 타임라인으로 시각화하고, 단기(72시간·3개월)와 중장기 재무계획을 구분해 제시합니다.",
+  "problemStatement": "고객 C는 3개월 뒤 부모 돌봄을 맡게 될 가능성이 높습니다. 단축근무 시 소득이 230만원으로 줄고 돌봄비 45만원이 추가되면 월 저축 여력이 130만원에서 15만원으로 급감합니다.",
+  "analysisQuestions": [
+    "돌봄이 시작되면 월 순현금흐름은 얼마로 줄어드는가?",
+    "현재 현금으로 필수지출을 몇 개월 감당할 수 있는가?",
+    "휴직과 단축근무 중 어떤 선택이 현금 소진 위험이 적은가?",
+    "긴급자금 목표는 언제 달성 가능한가?"
+  ],
+  "stageDescriptions": [
+    "돌봄 상황과 고객이 감당 가능한 역할 범위를 확인합니다.",
+    "돌봄 시간·근로 변화·추가 비용 자료를 수집합니다.",
+    "돌봄 전후 현금흐름과 현금 소진 위험을 계산합니다.",
+    "단축근무·휴직·분담 시나리오를 비교해 제시합니다.",
+    "72시간 체크리스트와 3개월 계획을 실행합니다.",
+    "돌봄 장기화 여부에 따라 계획을 월 단위로 재점검합니다."
+  ],
+  "insightsHeading": "돌봄 충격 분석",
+  "reportTitle": "돌봄 시작 72시간 — 돌봄 위기 생활 안정 재무설계 보고서",
+  "reportSections": [
+    { "id": "summary", "title": "고객 요약과 돌봄 상황" },
+    { "id": "goals", "title": "긴급·중장기 재무목표" },
+    { "id": "status", "title": "돌봄 전후 재무상태" },
+    { "id": "risks", "title": "현금 소진과 긴급 대응 위험" },
+    { "id": "scenarios", "title": "근무 형태별 시나리오 비교" },
+    { "id": "recommendations", "title": "권고안: 72시간·3개월·장기" },
+    { "id": "verification", "title": "AI 제안 검증" },
+    { "id": "actions", "title": "긴급 실행 계획" },
+    { "id": "review", "title": "돌봄 장기화 점검 계획" }
+  ],
+  "actionTemplates": [
+    { "id": "act_freeze", "title": "72시간 내 비필수 지출 동결", "priority": 1, "dueMonth": 1, "amount": 200000, "reviewCondition": "돌봄 종료 또는 소득 회복 시" },
+    { "id": "act_fund", "title": "긴급자금 300만원 별도 계좌 분리", "priority": 1, "dueMonth": 1, "amount": 3000000, "reviewCondition": "긴급자금 50% 이상 사용 시" },
+    { "id": "act_work", "title": "근무 형태(단축·휴직) 회사와 협의", "priority": 1, "dueMonth": 1, "amount": 0, "reviewCondition": "돌봄 시간 주 20시간 초과 시" },
+    { "id": "act_share", "title": "친척과 돌봄비 분담 논의", "priority": 2, "dueMonth": 2, "amount": 200000, "reviewCondition": "분담 합의 불이행 시" },
+    { "id": "act_check", "title": "공적 돌봄 지원 제도 확인(공식 기관 문의)", "priority": 2, "dueMonth": 1, "amount": 0, "reviewCondition": "제도 확인 후 시나리오에 수동 반영" }
+  ],
+  "disclaimer": "고객 C와 돌봄 비용은 합성 가정값입니다. 공적 지원 제도는 확인된 정보가 아니므로 계산에 자동 반영하지 않았습니다."
+}

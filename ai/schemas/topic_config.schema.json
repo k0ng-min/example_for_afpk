@@ -1,0 +1,6 @@
+{ "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object",
+  "required": ["id", "name", "serviceName", "primaryClientId", "signatureVisual", "accent", "icon", "modules", "agents", "inputSchema", "canvas", "scenarioPresets", "visual", "content", "rules", "verificationChecklist"],
+  "properties": {
+    "signatureVisual": { "enum": ["commitment_graph", "contagion_map", "care_timeline", "goal_discovery", "verification_court", "scenario_overview"] },
+    "accent": { "enum": ["cyan", "blue", "violet", "emerald", "amber", "rose"] },
+    "modules": { "type": "array", "items": { "enum": ["core_cashflow", "goal_priority", "business_contagion", "care_shock", "claim_verification"] } } } }

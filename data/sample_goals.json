@@ -1,0 +1,8 @@
+[
+  { "id": "tpl_emergency", "name": "비상예비자금 추가 확보", "targetAmount": 3000000, "targetMonth": 12, "priority": 1, "category": "emergency" },
+  { "id": "tpl_housing", "name": "주거 독립(보증금)", "targetAmount": 30000000, "targetMonth": 36, "priority": 2, "category": "housing" },
+  { "id": "tpl_career", "name": "경력 개발·교육", "targetAmount": 5000000, "targetMonth": 24, "priority": 3, "category": "career" },
+  { "id": "tpl_debt", "name": "고금리 부채 조기 상환", "targetAmount": 4000000, "targetMonth": 18, "priority": 2, "category": "debt" },
+  { "id": "tpl_marriage", "name": "결혼 자금", "targetAmount": 30000000, "targetMonth": 48, "priority": 3, "category": "life_event" },
+  { "id": "tpl_care", "name": "가족 돌봄 대비 자금", "targetAmount": 6000000, "targetMonth": 12, "priority": 2, "category": "care" }
+]

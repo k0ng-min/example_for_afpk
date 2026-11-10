@@ -1,0 +1,29 @@
+{
+  "nodes": [
+    { "id": "n_client", "kind": "client", "label": "고객 B · 34세 카페 운영", "detail": "가계 소득 400만원 = 사업 대표자 인출", "x": 0, "y": 240, "metric": "monthly_income" },
+    { "id": "n_business", "kind": "analysis", "label": "사업 현금흐름", "detail": "매출 − 운영비 − 대표자 인출 − 사업부채 상환", "x": 320, "y": 60, "metric": "business_cash_depleted_month" },
+    { "id": "n_shock", "kind": "risk", "label": "매출 감소 충격", "detail": "Scenario Lab에서 매출 변화율로 조정", "x": 320, "y": 260 },
+    { "id": "n_household", "kind": "analysis", "label": "가계 현금흐름", "detail": "가계 소득 − 생활비", "x": 320, "y": 460, "metric": "monthly_surplus" },
+    { "id": "n_contagion", "kind": "risk", "label": "가계 전염", "detail": "사업 부족분을 가계가 메운 누적액", "x": 650, "y": 160, "metric": "total_household_transfer" },
+    { "id": "n_buffer", "kind": "analysis", "label": "가계 완충자금", "detail": "필수지출 대비 가계 현금 커버리지", "x": 650, "y": 400, "metric": "emergency_fund_months_x10" },
+    { "id": "n_scn_firewall", "kind": "scenario", "label": "방화벽 시나리오", "detail": "가계 자금의 사업 이전을 차단", "x": 980, "y": 60 },
+    { "id": "n_ai", "kind": "ai_proposal", "label": "AI 제안: 계좌 분리 + 완충자금", "detail": "사업·가계 계좌 분리, 가계 6개월 생활비 별도 예치", "x": 980, "y": 280 },
+    { "id": "n_evidence", "kind": "evidence", "label": "검증: 최저 현금", "detail": "시뮬레이션 기간 중 가계 최저 현금", "x": 980, "y": 480, "metric": "min_cash" },
+    { "id": "n_goal", "kind": "goal", "label": "가계 생활 안정", "detail": "1순위 목표 달성 시점", "x": 1300, "y": 380, "metric": "primary_goal_achieved_month" },
+    { "id": "n_action", "kind": "action", "label": "계좌 분리 · 이전 한도", "detail": "가계→사업 이전 한도 설정", "x": 1300, "y": 160 }
+  ],
+  "edges": [
+    { "id": "e1", "source": "n_client", "target": "n_business", "label": "사업" },
+    { "id": "e2", "source": "n_client", "target": "n_household", "label": "가계" },
+    { "id": "e3", "source": "n_shock", "target": "n_business", "label": "충격" },
+    { "id": "e4", "source": "n_business", "target": "n_contagion", "label": "부족분" },
+    { "id": "e5", "source": "n_contagion", "target": "n_household", "label": "전염" },
+    { "id": "e6", "source": "n_household", "target": "n_buffer", "label": "" },
+    { "id": "e7", "source": "n_contagion", "target": "n_scn_firewall", "label": "차단" },
+    { "id": "e8", "source": "n_buffer", "target": "n_ai", "label": "탐지" },
+    { "id": "e9", "source": "n_ai", "target": "n_evidence", "label": "검증" },
+    { "id": "e10", "source": "n_scn_firewall", "target": "n_action", "label": "" },
+    { "id": "e11", "source": "n_evidence", "target": "n_goal", "label": "" },
+    { "id": "e12", "source": "n_ai", "target": "n_action", "label": "실행" }
+  ]
+}

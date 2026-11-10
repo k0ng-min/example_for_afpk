@@ -1,0 +1,13 @@
+{
+  "rules": [],
+  "verificationChecklist": [
+    "AI 주장마다 근거 지표와 계산식을 연결했는가?",
+    "Rust 엔진 독립 계산 결과와 주장 값이 허용 오차 안에서 일치하는가?",
+    "근거가 없는 주장을 검증 완료로 표시하지 않았는가?",
+    "사람이 최종 판단을 기록했는가?"
+  ],
+  "aiDraftClaims": [
+    { "id": "c_surplus", "statement": "고객의 월 저축 여력은 약 110만원이다.", "metric": "monthly_surplus", "claimedValue": 1100000, "rationale": "소득에서 생활비·지원·상환을 뺀 값" },
+    { "id": "c_unsupported", "statement": "지금 투자를 시작하면 5년 뒤 목표를 반드시 달성한다.", "metric": null, "claimedValue": null, "rationale": "근거 지표 없음" }
+  ]
+}

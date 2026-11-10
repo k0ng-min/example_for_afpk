@@ -1,0 +1,6 @@
+[
+  { "id": "p_base", "name": "현재 유지", "description": "AI 제안 적용 전", "color": "#3060a8", "adjustments": { "horizonMonths": 36 } },
+  { "id": "p_ai_draft", "name": "AI 초안: 투자 확대", "description": "월 50만원 투자, 연 7% 가정(검증 대상)", "color": "#c4547d", "adjustments": { "horizonMonths": 36, "monthlyInvestment": 500000, "investmentReturnBps": 700 } },
+  { "id": "p_fixed", "name": "수정안: 카드론 우선 상환", "description": "카드론 월 30만원 추가상환, 투자 보류", "color": "#20907a", "adjustments": { "horizonMonths": 36, "extraDebtPayment": 300000 } },
+  { "id": "p_balanced", "name": "균형안", "description": "추가상환 20만원 + 투자 10만원(연 3% 가정)", "color": "#7e60c6", "adjustments": { "horizonMonths": 36, "extraDebtPayment": 200000, "monthlyInvestment": 100000, "investmentReturnBps": 300 } }
+]

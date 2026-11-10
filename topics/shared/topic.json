@@ -1,0 +1,21 @@
+{
+  "id": "shared_workspace",
+  "name": "공통 워크스페이스 (주제 미확정)",
+  "serviceName": "FINOVA",
+  "tagline": "근거로 연결하는 AI 재무설계 워크스페이스",
+  "problem": "최종 공모전 주제가 아직 확정되지 않은 상태의 공통 재무설계 작업 공간입니다. 5개 후보 주제 중 하나를 선택하거나 새 아이디어를 입력하면 주제별 구성으로 전환됩니다.",
+  "targetCustomer": "재무목표와 현실 제약이 충돌하는 20~30대 (합성 고객)",
+  "primaryClientId": "client_a",
+  "signatureVisual": "scenario_overview",
+  "accent": "cyan",
+  "icon": "sparkles",
+  "modules": ["core_cashflow", "goal_priority"],
+  "agents": [
+    { "agent": "financial_analyst", "focus": "현금흐름·자산·부채 기본 진단" },
+    { "agent": "scenario_planner", "focus": "소득·지출·부채 조정 시나리오 비교" },
+    { "agent": "risk_detector", "focus": "적자·비상자금·목표 부족 위험 탐색" },
+    { "agent": "critic", "focus": "AI 주장과 계산 결과의 일치 여부 검토" },
+    { "agent": "report_writer", "focus": "검증된 결과만 보고서로 정리" }
+  ],
+  "requiresDevelopment": []
+}

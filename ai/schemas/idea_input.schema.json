@@ -1,0 +1,5 @@
+{ "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "additionalProperties": false, "required": ["ideaName"],
+  "properties": { "ideaName": { "type": "string", "minLength": 1, "maxLength": 80 }, "description": { "type": "string", "maxLength": 4000 },
+    "coreProblem": { "type": "string", "maxLength": 1500 }, "targetCustomer": { "type": "string", "maxLength": 1500 }, "financialProblem": { "type": "string", "maxLength": 1500 },
+    "aiRole": { "type": "string", "maxLength": 1500 }, "requiredData": { "type": "string", "maxLength": 1500 }, "expectedGoals": { "type": "string", "maxLength": 1500 },
+    "keyRisks": { "type": "string", "maxLength": 1500 }, "desiredFeatures": { "type": "string", "maxLength": 1500 }, "references": { "type": "string", "maxLength": 1500 }, "notes": { "type": "string", "maxLength": 1500 } } }

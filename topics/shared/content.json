@@ -1,0 +1,39 @@
+{
+  "heroTitle": "재무 판단의 근거를 연결하는 AI 워크스페이스",
+  "heroSubtitle": "고객 데이터 → 목표 → 위험 → 시나리오 → 검증 → 실행까지, 모든 결론을 계산 근거와 함께 연결합니다.",
+  "intro": "FINOVA는 AI 분석과 Rust 재무 계산 엔진을 결합해 재무설계 6단계를 하나의 흐름으로 다룹니다. 현재는 최종 주제가 확정되지 않은 공통 워크스페이스입니다.",
+  "problemStatement": "AI가 제시한 재무 조언은 그럴듯하지만 계산 근거가 불분명한 경우가 많습니다. 고객의 실제 숫자로 다시 계산하고 검증해야 실행 가능한 계획이 됩니다.",
+  "analysisQuestions": [
+    "매월 실제로 남는 돈은 얼마인가?",
+    "지금 현금으로 몇 개월을 버틸 수 있는가?",
+    "1순위 목표는 언제 달성 가능한가?",
+    "어떤 조정이 목표 달성 시점을 가장 크게 앞당기는가?"
+  ],
+  "stageDescriptions": [
+    "합성 고객과 상담 범위·역할을 확인합니다.",
+    "재무목표와 소득·지출·자산·부채 자료를 수집합니다.",
+    "Rust 엔진으로 현금흐름과 위험 지표를 계산합니다.",
+    "시나리오를 비교해 재무설계안을 제시합니다.",
+    "실행계획을 우선순위·금액·일정으로 관리합니다.",
+    "재점검 조건을 설정하고 계획을 모니터링합니다."
+  ],
+  "insightsHeading": "AI 분석 인사이트",
+  "reportTitle": "FINOVA 재무설계 보고서",
+  "reportSections": [
+    { "id": "summary", "title": "고객 요약" },
+    { "id": "goals", "title": "재무목표" },
+    { "id": "status", "title": "재무상태 분석" },
+    { "id": "risks", "title": "위험 분석" },
+    { "id": "scenarios", "title": "시나리오 비교" },
+    { "id": "recommendations", "title": "권고안" },
+    { "id": "verification", "title": "AI 결과 검증" },
+    { "id": "actions", "title": "실행 계획" },
+    { "id": "review", "title": "점검 계획" }
+  ],
+  "actionTemplates": [
+    { "id": "act_budget", "title": "월 예산표 작성 및 변동지출 점검", "priority": 1, "dueMonth": 1, "amount": 0, "reviewCondition": "변동지출이 계획 대비 10% 이상 초과 시" },
+    { "id": "act_emergency", "title": "비상예비자금 별도 계좌 분리", "priority": 1, "dueMonth": 2, "amount": 0, "reviewCondition": "현금 커버리지 3개월 미만 시" },
+    { "id": "act_autosave", "title": "목표 자금 자동이체 설정", "priority": 2, "dueMonth": 1, "amount": 0, "reviewCondition": "소득 변동 발생 시" }
+  ],
+  "disclaimer": "본 화면의 모든 고객은 합성 데이터이며, 계산 결과는 입력한 가정에 따른 추정치로 미래 결과를 보장하지 않습니다."
+}

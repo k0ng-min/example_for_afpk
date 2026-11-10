@@ -1,0 +1,25 @@
+{
+  "nodes": [
+    { "id": "n_client", "kind": "client", "label": "고객 E · 26세 사회초년생", "detail": "세후 270만원, 카드론 400만원", "x": 0, "y": 260, "metric": "monthly_income" },
+    { "id": "n_ai_draft", "kind": "ai_proposal", "label": "AI 초안: 월 50만원 투자", "detail": "연 7% 수익 가정으로 투자 확대 제안", "x": 320, "y": 80 },
+    { "id": "n_claim_surplus", "kind": "analysis", "label": "주장 1: 저축 여력 120만원", "detail": "Rust 엔진으로 독립 재계산", "x": 320, "y": 300, "metric": "monthly_surplus" },
+    { "id": "n_rebuttal", "kind": "risk", "label": "반론: 고금리 카드론 방치", "detail": "연 14.5% 부채를 두고 투자 확대가 타당한가", "x": 650, "y": 80, "metric": "debt_service_ratio_bps" },
+    { "id": "n_calc", "kind": "evidence", "label": "계산 검증", "detail": "주장값 vs 독립 계산값, 허용 오차 비교", "x": 650, "y": 300, "metric": "emergency_fund_months_x10" },
+    { "id": "n_source", "kind": "evidence", "label": "근거 검토", "detail": "수익률 보장 주장 — 근거 없음", "x": 650, "y": 500 },
+    { "id": "n_scn_fix", "kind": "scenario", "label": "수정안: 부채 우선 상환", "detail": "카드론 추가상환 30만원", "x": 980, "y": 160 },
+    { "id": "n_compare", "kind": "analysis", "label": "수정 전후 비교", "detail": "기간 총 이자 비교", "x": 980, "y": 380, "metric": "total_interest_paid" },
+    { "id": "n_verdict", "kind": "action", "label": "인간 최종 판단", "detail": "Verification Lab에서 판결 기록", "x": 1300, "y": 270 }
+  ],
+  "edges": [
+    { "id": "e1", "source": "n_client", "target": "n_ai_draft", "label": "입력" },
+    { "id": "e2", "source": "n_client", "target": "n_claim_surplus", "label": "" },
+    { "id": "e3", "source": "n_ai_draft", "target": "n_rebuttal", "label": "반론" },
+    { "id": "e4", "source": "n_claim_surplus", "target": "n_calc", "label": "검증" },
+    { "id": "e5", "source": "n_ai_draft", "target": "n_source", "label": "근거" },
+    { "id": "e6", "source": "n_rebuttal", "target": "n_scn_fix", "label": "수정" },
+    { "id": "e7", "source": "n_calc", "target": "n_compare", "label": "" },
+    { "id": "e8", "source": "n_scn_fix", "target": "n_compare", "label": "" },
+    { "id": "e9", "source": "n_compare", "target": "n_verdict", "label": "판결" },
+    { "id": "e10", "source": "n_source", "target": "n_verdict", "label": "" }
+  ]
+}

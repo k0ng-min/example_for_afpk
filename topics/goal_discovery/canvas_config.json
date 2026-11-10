@@ -1,0 +1,27 @@
+{
+  "nodes": [
+    { "id": "n_client", "kind": "client", "label": "고객 D · 31세 마케터", "detail": "세후 380만원, 목표 3개 동시 보유", "x": 0, "y": 260, "metric": "monthly_income" },
+    { "id": "n_goal_mba", "kind": "goal", "label": "해외 MBA (처음 1순위)", "detail": "36개월 내 4,000만원", "x": 320, "y": 40, "metric": "primary_goal_achieved_month" },
+    { "id": "n_goal_wedding", "kind": "goal", "label": "결혼 자금", "detail": "48개월 내 3,000만원", "x": 320, "y": 260 },
+    { "id": "n_goal_car", "kind": "goal", "label": "자동차 구입", "detail": "12개월 내 1,500만원", "x": 320, "y": 480 },
+    { "id": "n_conflict", "kind": "risk", "label": "목표 충돌", "detail": "기한 내 달성 가능한 목표 수", "x": 650, "y": 260, "metric": "goals_on_track" },
+    { "id": "n_questions", "kind": "ai_proposal", "label": "AI 반증 질문", "detail": "'자동차가 1년 늦어지면 무엇을 잃나요?' 등 선택 상황 질문", "x": 650, "y": 40 },
+    { "id": "n_flow", "kind": "analysis", "label": "저축 여력", "detail": "목표 전체에 배분 가능한 월 현금흐름", "x": 650, "y": 480, "metric": "monthly_surplus" },
+    { "id": "n_scn", "kind": "scenario", "label": "우선순위 변경 시나리오", "detail": "자동차 우선 / MBA 보류 / 자동차 포기", "x": 980, "y": 160 },
+    { "id": "n_evidence", "kind": "evidence", "label": "검증: 변경 전후 비교", "detail": "1순위 목표 필요 월저축 독립 계산", "x": 980, "y": 380, "metric": "primary_goal_required_saving" },
+    { "id": "n_action", "kind": "action", "label": "확정 우선순위로 자동이체", "detail": "목표별 계좌 분리", "x": 1300, "y": 260 }
+  ],
+  "edges": [
+    { "id": "e1", "source": "n_client", "target": "n_goal_mba", "label": "1" },
+    { "id": "e2", "source": "n_client", "target": "n_goal_wedding", "label": "2" },
+    { "id": "e3", "source": "n_client", "target": "n_goal_car", "label": "3" },
+    { "id": "e4", "source": "n_goal_mba", "target": "n_conflict", "label": "" },
+    { "id": "e5", "source": "n_goal_wedding", "target": "n_conflict", "label": "" },
+    { "id": "e6", "source": "n_goal_car", "target": "n_conflict", "label": "" },
+    { "id": "e7", "source": "n_flow", "target": "n_conflict", "label": "제약" },
+    { "id": "e8", "source": "n_conflict", "target": "n_questions", "label": "반증" },
+    { "id": "e9", "source": "n_questions", "target": "n_scn", "label": "재정렬" },
+    { "id": "e10", "source": "n_scn", "target": "n_evidence", "label": "계산" },
+    { "id": "e11", "source": "n_evidence", "target": "n_action", "label": "확정" }
+  ]
+}

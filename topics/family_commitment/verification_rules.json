@@ -1,0 +1,18 @@
+{
+  "rules": [
+    { "id": "fc_support_ratio", "metric": "family_support_ratio_bps", "op": "gt", "threshold": 1500, "severity": "warning", "title": "가족 지원 비중 높음", "message": "가족 지원이 소득의 {value}를 차지해 개인 목표 적립을 압박합니다." },
+    { "id": "fc_goal_conflict", "metric": "goals_on_track", "op": "lt", "threshold": 2, "severity": "warning", "title": "목표 간 충돌", "message": "기한 내 달성 가능한 목표가 {value}로, 일부 목표는 우선순위 조정이 필요합니다." }
+  ],
+  "verificationChecklist": [
+    "가족 지원 비율 계산이 1개월 차 소득 기준으로 일치하는가?",
+    "지원 상한 시나리오가 다른 조건을 바꾸지 않았는가(독립성)?",
+    "가족 관계에 대한 단정적 주장이 근거 없이 포함되지 않았는가?",
+    "목표 우선순위 변경 전후 달성 시점을 모두 제시했는가?"
+  ],
+  "aiDraftClaims": [
+    { "id": "c_fc_surplus", "statement": "고객 A의 월 저축 여력은 110만원이다.", "metric": "monthly_surplus", "claimedValue": 1100000, "rationale": "320만 − 135만 − 50만 − 25만" },
+    { "id": "c_fc_ratio", "statement": "가족 지원은 소득의 15% 수준이다.", "metric": "family_support_ratio_bps", "claimedValue": 1500, "rationale": "50만 ÷ 320만 근사" },
+    { "id": "c_fc_cap", "statement": "지원 상한 40만원을 합의하면 주거 독립 목표를 26개월 차에 달성한다.", "metric": "primary_goal_achieved_month", "claimedValue": 26, "scenarioPreset": "p_cap", "rationale": "월 저축 120만원 가정" },
+    { "id": "c_fc_relation", "statement": "지원을 줄이면 가족 관계가 악화될 것이다.", "metric": null, "claimedValue": null, "rationale": "정성적 추정" }
+  ]
+}

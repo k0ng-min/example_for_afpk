@@ -1,0 +1,5 @@
+{ "$schema": "https://json-schema.org/draft/2020-12/schema", "type": "object", "additionalProperties": false,
+  "required": ["id", "statement"],
+  "properties": { "id": { "type": "string", "pattern": "^[A-Za-z0-9_-]{1,64}$" }, "statement": { "type": "string", "maxLength": 300 },
+    "metric": { "type": ["string", "null"] }, "claimedValue": { "type": ["integer", "null"] }, "scenarioPreset": { "type": ["string", "null"] },
+    "source": { "enum": ["ai_draft", "user", "rule_engine"] } } }

@@ -1,0 +1,17 @@
+{
+  "rules": [
+    { "id": "hb_contagion", "metric": "total_household_transfer", "op": "gt", "threshold": 0, "severity": "critical", "title": "가계 전염 발생", "message": "사업 부족분 {value}가 가계에서 사업으로 이전됩니다." },
+    { "id": "hb_depleted", "metric": "business_cash_depleted_month", "op": "present", "severity": "critical", "title": "사업 현금 소진", "message": "{value} 차에 사업 운영자금이 소진됩니다." }
+  ],
+  "verificationChecklist": [
+    "사업부채 상환이 가계가 아닌 사업 현금에서 차감되었는가?",
+    "가계 소득(대표자 인출)과 사업 매출이 이중 집계되지 않았는가?",
+    "매출 회복 가정이 근거 없이 포함되지 않았는가?",
+    "방화벽 시나리오에서 사업 미지급 부족분을 숨기지 않았는가?"
+  ],
+  "aiDraftClaims": [
+    { "id": "c_hb_depleted", "statement": "매출이 20% 줄면 사업 운영자금은 6개월 차에 소진된다.", "metric": "business_cash_depleted_month", "claimedValue": 6, "scenarioPreset": "p_drop20", "rationale": "월 −225만원 기준에 겨울 비수기(1~2월) 매출 감소 반영" },
+    { "id": "c_hb_transfer", "statement": "매출 20% 감소가 3년간 지속되면 가계가 약 5,000만원을 사업에 이전하게 된다.", "metric": "total_household_transfer", "claimedValue": 50000000, "scenarioPreset": "p_drop20", "rationale": "월 225만원 × 30개월 근사" },
+    { "id": "c_hb_recover", "statement": "매출은 6개월 내에 회복될 것이다.", "metric": null, "claimedValue": null, "rationale": "근거 없는 낙관" }
+  ]
+}

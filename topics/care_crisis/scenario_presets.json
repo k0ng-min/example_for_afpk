@@ -1,0 +1,16 @@
+[
+  { "id": "p_none", "name": "돌봄 미발생(참고)", "description": "돌봄이 발생하지 않은 기준선", "color": "#3060a8", "adjustments": { "horizonMonths": 36 } },
+  { "id": "p_care", "name": "돌봄 발생 (3개월 차)", "description": "단축근무로 소득 −70만원, 돌봄비 +45만원", "color": "#2f93c9", "adjustments": { "horizonMonths": 36, "events": [
+    { "id": "ev_income", "name": "단축근무로 소득 감소", "kind": "income_change", "startMonth": 3, "amount": -700000 },
+    { "id": "ev_cost", "name": "추가 돌봄 비용", "kind": "expense_change", "startMonth": 3, "amount": 450000 }
+  ] } },
+  { "id": "p_leave", "name": "휴직 3개월 후 단축근무", "description": "3~5개월 차 소득 −150만원, 이후 −70만원", "color": "#c4547d", "adjustments": { "horizonMonths": 36, "events": [
+    { "id": "ev_leave", "name": "돌봄 휴직(무급 가정)", "kind": "income_change", "startMonth": 3, "endMonth": 5, "amount": -1500000 },
+    { "id": "ev_short", "name": "복귀 후 단축근무", "kind": "income_change", "startMonth": 6, "amount": -700000 },
+    { "id": "ev_cost", "name": "추가 돌봄 비용", "kind": "expense_change", "startMonth": 3, "amount": 450000 }
+  ] } },
+  { "id": "p_share", "name": "돌봄비 분담 + 지출 절감", "description": "친척과 돌봄비 분담(25만원), 변동지출 20만원 절감", "color": "#20907a", "adjustments": { "horizonMonths": 36, "variableExpenseChange": -200000, "events": [
+    { "id": "ev_income", "name": "단축근무로 소득 감소", "kind": "income_change", "startMonth": 3, "amount": -700000 },
+    { "id": "ev_cost", "name": "분담 후 돌봄 비용", "kind": "expense_change", "startMonth": 3, "amount": 250000 }
+  ] } }
+]

@@ -1,0 +1,11 @@
+[
+  { "id": "p_keep", "name": "현재 약속 유지", "description": "가족 지원 월 50만원 유지", "color": "#3060a8", "adjustments": { "horizonMonths": 60 } },
+  { "id": "p_cap", "name": "지원 상한 40만원", "description": "가족과 합의해 지원액을 월 40만원으로 조정", "color": "#7e60c6", "adjustments": { "horizonMonths": 60, "familySupportOverride": 400000 } },
+  { "id": "p_career_first", "name": "경력 개발 우선", "description": "경력 개발을 1순위, 주거 독립을 2순위로 변경", "color": "#20907a", "adjustments": { "horizonMonths": 60, "goals": [
+    { "id": "goal_a2", "name": "경력 개발(자격증·교육)", "targetAmount": 5000000, "targetMonth": 24, "priority": 1, "category": "career" },
+    { "id": "goal_a1", "name": "3년 내 주거 독립 자금", "targetAmount": 30000000, "targetMonth": 36, "priority": 2, "category": "housing" }
+  ] } },
+  { "id": "p_raise", "name": "6개월 후 이직(+30만원)", "description": "6개월 차부터 월 소득 300,000원 증가 가정", "color": "#b57d22", "adjustments": { "horizonMonths": 60, "events": [
+    { "id": "ev_raise", "name": "이직으로 소득 증가", "kind": "income_change", "startMonth": 6, "amount": 300000 }
+  ] } }
+]

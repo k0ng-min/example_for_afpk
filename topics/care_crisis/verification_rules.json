@@ -1,0 +1,17 @@
+{
+  "rules": [
+    { "id": "cc_low_surplus", "metric": "savings_rate_bps", "op": "lt", "threshold": 500, "severity": "critical", "title": "돌봄 후 저축 여력 급감", "message": "저축률이 {value}로 돌봄 장기화에 대비하기 어렵습니다." },
+    { "id": "cc_min_cash", "metric": "min_cash", "op": "lt", "threshold": 3000000, "severity": "warning", "title": "긴급자금 하한 위협", "message": "기간 중 최저 현금이 {value}로 긴급자금 목표(300만원)보다 낮아집니다." }
+  ],
+  "verificationChecklist": [
+    "돌봄 이벤트 시작 월이 고객 입력(돌봄 시작 시점)과 일치하는가?",
+    "확인되지 않은 공적 지원 금액을 계산에 넣지 않았는가?",
+    "단기(72시간·3개월)와 중장기 계획을 구분했는가?",
+    "휴직 기간 무급 가정을 명시했는가?"
+  ],
+  "aiDraftClaims": [
+    { "id": "c_cc_min", "statement": "돌봄이 시작돼도 기간 중 최저 현금은 500만원 이상 유지된다.", "metric": "min_cash", "claimedValue": 5000000, "scenarioPreset": "p_care", "rationale": "초기 2개월 저축 효과" },
+    { "id": "c_cc_goal", "statement": "돌봄이 시작돼도 긴급자금 300만원은 2개월 차에 확보된다.", "metric": "primary_goal_achieved_month", "claimedValue": 2, "scenarioPreset": "p_care", "rationale": "월 130만원 저축 지속 가정(오류 가능)" },
+    { "id": "c_cc_public", "statement": "정부 돌봄 지원금으로 월 50만원을 받을 수 있다.", "metric": null, "claimedValue": null, "rationale": "출처 미확인" }
+  ]
+}

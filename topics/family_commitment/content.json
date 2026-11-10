@@ -1,0 +1,40 @@
+{
+  "heroTitle": "가족과의 약속도, 나의 독립도 지키는 계획",
+  "heroSubtitle": "가족 지원을 끊을지 말지가 아니라, 얼마를 언제까지 지원할 때 내 목표가 함께 달성되는지 계산합니다.",
+  "intro": "약속의 방화벽은 가족 부양과 개인 재무목표가 같은 현금흐름을 두고 경쟁하는 상황을 시각화하고, 지원 상한·우선순위·소득 변화 대안을 비교합니다.",
+  "problemStatement": "고객 A는 매월 소득의 약 16%를 부모님께 지원하면서 3년 내 주거 독립과 경력 개발을 함께 원합니다. 두 목표를 모두 기한 내 달성할 수 있는지, 어떤 합의가 필요한지 판단해야 합니다.",
+  "analysisQuestions": [
+    "가족 지원액은 소득의 몇 %를 차지하는가?",
+    "현재 약속을 유지하면 주거 독립은 언제 가능한가?",
+    "지원 상한을 합의하면 목표 달성 시점이 얼마나 앞당겨지는가?",
+    "경력 개발을 먼저 하면 주거 독립은 얼마나 늦어지는가?"
+  ],
+  "stageDescriptions": [
+    "가족 지원의 배경과 고객이 지키고 싶은 약속을 확인합니다.",
+    "주거 독립·경력 개발 목표와 가족 지원 금액을 수집합니다.",
+    "지원액 비중, 저축 여력, 목표 간 충돌을 계산합니다.",
+    "지원 상한·우선순위 변경 시나리오를 비교해 제시합니다.",
+    "가족 합의와 목표 자동이체를 실행합니다.",
+    "가족 상황·소득 변화 시 지원 상한을 재점검합니다."
+  ],
+  "insightsHeading": "약속과 목표의 충돌 분석",
+  "reportTitle": "약속의 방화벽 — 가족 지원과 주거 독립 재무설계 보고서",
+  "reportSections": [
+    { "id": "summary", "title": "고객 요약과 가족 약속" },
+    { "id": "goals", "title": "재무목표와 우선순위" },
+    { "id": "status", "title": "현금흐름 배분 분석" },
+    { "id": "risks", "title": "목표 충돌과 위험" },
+    { "id": "scenarios", "title": "지원 대안별 시나리오 비교" },
+    { "id": "recommendations", "title": "권고안: 지원 상한과 기간 합의" },
+    { "id": "verification", "title": "AI 제안 검증" },
+    { "id": "actions", "title": "실행 계획" },
+    { "id": "review", "title": "재점검 조건" }
+  ],
+  "actionTemplates": [
+    { "id": "act_family_talk", "title": "가족과 지원 상한·기간 합의", "priority": 1, "dueMonth": 1, "amount": 400000, "reviewCondition": "부모님 의료·소득 상황 변화 시" },
+    { "id": "act_housing_auto", "title": "주거 독립 목표 계좌 자동이체", "priority": 1, "dueMonth": 1, "amount": 900000, "reviewCondition": "자동이체 2회 이상 실패 시" },
+    { "id": "act_emergency", "title": "비상예비자금 3개월분 분리", "priority": 2, "dueMonth": 3, "amount": 6300000, "reviewCondition": "현금 커버리지 3개월 미만 시" },
+    { "id": "act_career", "title": "경력 개발 예산 확정(자격증·교육)", "priority": 3, "dueMonth": 6, "amount": 5000000, "reviewCondition": "이직·승진 등 소득 변동 시" }
+  ],
+  "disclaimer": "고객 A는 합성 사례입니다. 가족 지원 판단은 숫자만으로 결정할 수 없으며, 최종 결정은 고객과 가족의 합의가 필요합니다."
+}

@@ -1,0 +1,7 @@
+{
+  "charts": ["scenario_compare", "assets_liabilities", "cash_balance", "net_worth", "monthly_cashflow"],
+  "kpis": ["monthly_surplus", "debt_service_ratio_bps", "emergency_fund_months_x10", "total_interest_paid"],
+  "heroMotif": "court",
+  "signatureTitle": "AI 검증 심리 흐름",
+  "signatureDescription": "AI 주장 → 반론 → 계산 검증 → 근거 검토 → 인간 판결의 심리 흐름"
+}

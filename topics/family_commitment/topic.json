@@ -1,0 +1,21 @@
+{
+  "id": "family_commitment",
+  "name": "약속의 방화벽",
+  "serviceName": "FINOVA · 약속의 방화벽",
+  "tagline": "가족과의 약속과 나의 미래 목표가 함께 지켜지는 현금흐름 설계",
+  "problem": "부모에게 생활비를 지원하는 청년이 주거 독립과 경력 개발을 동시에 추진할 때, 가족 지원 약속과 개인 재무목표가 같은 현금흐름을 두고 충돌합니다.",
+  "targetCustomer": "가족을 경제적으로 지원하면서 주거 독립을 준비하는 20대 직장인",
+  "primaryClientId": "client_a",
+  "signatureVisual": "commitment_graph",
+  "accent": "violet",
+  "icon": "heart_handshake",
+  "modules": ["core_cashflow", "goal_priority"],
+  "agents": [
+    { "agent": "financial_analyst", "focus": "가족 지원액이 저축 여력에 미치는 비중 분석" },
+    { "agent": "risk_detector", "focus": "주거 독립·경력 개발·가족 지원 간 목표 충돌 탐색" },
+    { "agent": "scenario_planner", "focus": "지원 상한·우선순위 변경·소득 증가 대안 비교" },
+    { "agent": "critic", "focus": "가족 관계에 대한 단정적 주장과 계산 오류 검토" },
+    { "agent": "report_writer", "focus": "가족과 합의 가능한 언어로 권고안 정리" }
+  ],
+  "requiresDevelopment": []
+}

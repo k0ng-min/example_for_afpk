@@ -1,0 +1,6 @@
+[
+  { "id": "p_base", "name": "현재 매출 유지", "description": "매출 변동 없음", "color": "#3060a8", "adjustments": { "horizonMonths": 36 } },
+  { "id": "p_drop20", "name": "매출 20% 감소", "description": "가계가 사업 부족분을 메우는 경우(전염)", "color": "#c4547d", "adjustments": { "horizonMonths": 36, "businessRevenueChangeBps": -2000 } },
+  { "id": "p_firewall", "name": "매출 20% 감소 + 방화벽", "description": "가계 자금의 사업 이전을 차단(사업 부족분은 별도 관리)", "color": "#7e60c6", "adjustments": { "horizonMonths": 36, "businessRevenueChangeBps": -2000, "householdBackstop": false } },
+  { "id": "p_drop30_cut", "name": "매출 30% 감소 + 지출 절감", "description": "가계 변동지출 30만원 절감", "color": "#b57d22", "adjustments": { "horizonMonths": 36, "businessRevenueChangeBps": -3000, "variableExpenseChange": -300000 } }
+]

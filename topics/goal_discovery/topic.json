@@ -1,0 +1,21 @@
+{
+  "id": "goal_discovery",
+  "name": "목표 반증 인터뷰",
+  "serviceName": "FINOVA · 목표 발견",
+  "tagline": "처음 말한 목표가 정말 가장 중요한 목표인지, 숫자와 질문으로 반증합니다",
+  "problem": "고객이 상담 초기에 제시한 목표 순서는 실제 우선순위와 다를 수 있습니다. 검증 없이 처음 목표를 그대로 계획에 반영하면 달성 불가능하거나 고객이 원하지 않는 계획이 만들어집니다.",
+  "targetCustomer": "여러 인생 목표(학업·결혼·소비)가 동시에 있는 30대 직장인",
+  "primaryClientId": "client_d",
+  "signatureVisual": "goal_discovery",
+  "accent": "emerald",
+  "icon": "compass",
+  "modules": ["core_cashflow", "goal_priority"],
+  "agents": [
+    { "agent": "financial_analyst", "focus": "목표별 필요 저축액과 달성 시점 계산" },
+    { "agent": "risk_detector", "focus": "목표 간 충돌과 달성 불가 목표 탐색" },
+    { "agent": "scenario_planner", "focus": "우선순위 변경 전후 계획 비교" },
+    { "agent": "critic", "focus": "고객 의도를 단정하는 해석과 계산 오류 검토" },
+    { "agent": "report_writer", "focus": "변경 전후 계획을 나란히 정리" }
+  ],
+  "requiresDevelopment": []
+}

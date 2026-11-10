@@ -1,0 +1,7 @@
+{
+  "charts": ["cash_balance", "monthly_cashflow", "assets_liabilities", "scenario_compare", "goal_timeline"],
+  "kpis": ["monthly_surplus", "total_household_transfer", "business_cash_depleted_month", "min_cash"],
+  "heroMotif": "contagion",
+  "signatureTitle": "위험 전파 지도",
+  "signatureDescription": "사업 현금 부족이 가계로 전파되는 경로와 누적 전염액"
+}

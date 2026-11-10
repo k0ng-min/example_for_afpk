@@ -1,0 +1,23 @@
+{
+  "nodes": [
+    { "id": "n_client", "kind": "client", "label": "고객", "detail": "선택한 합성 고객의 기본 재무정보", "x": 0, "y": 220, "metric": "monthly_income" },
+    { "id": "n_goal", "kind": "goal", "label": "1순위 재무목표", "detail": "우선순위 1번 목표의 달성 시점", "x": 320, "y": 60, "metric": "primary_goal_achieved_month" },
+    { "id": "n_flow", "kind": "analysis", "label": "현금흐름 분석", "detail": "소득 − 생활비 − 지원 − 부채상환", "x": 320, "y": 260, "metric": "monthly_surplus" },
+    { "id": "n_risk", "kind": "risk", "label": "비상자금 위험", "detail": "필수지출 대비 현금 커버리지", "x": 320, "y": 460, "metric": "emergency_fund_months_x10" },
+    { "id": "n_scn", "kind": "scenario", "label": "시나리오 비교", "detail": "Scenario Lab에서 조건을 바꿔 비교", "x": 660, "y": 160 },
+    { "id": "n_ai", "kind": "ai_proposal", "label": "AI 제안", "detail": "규칙 기반 분석 엔진이 생성한 개선 제안", "x": 660, "y": 380 },
+    { "id": "n_evidence", "kind": "evidence", "label": "검증 근거", "detail": "Rust 엔진 독립 계산으로 AI 주장 확인", "x": 980, "y": 260, "metric": "primary_goal_required_saving" },
+    { "id": "n_action", "kind": "action", "label": "실행 행동", "detail": "Action Planner에서 관리", "x": 1280, "y": 260 }
+  ],
+  "edges": [
+    { "id": "e1", "source": "n_client", "target": "n_goal", "label": "목표" },
+    { "id": "e2", "source": "n_client", "target": "n_flow", "label": "데이터" },
+    { "id": "e3", "source": "n_client", "target": "n_risk", "label": "위험" },
+    { "id": "e4", "source": "n_flow", "target": "n_scn", "label": "가정 변경" },
+    { "id": "e5", "source": "n_risk", "target": "n_ai", "label": "탐지" },
+    { "id": "e6", "source": "n_goal", "target": "n_scn", "label": "" },
+    { "id": "e7", "source": "n_scn", "target": "n_evidence", "label": "계산" },
+    { "id": "e8", "source": "n_ai", "target": "n_evidence", "label": "검증" },
+    { "id": "e9", "source": "n_evidence", "target": "n_action", "label": "승인" }
+  ]
+}

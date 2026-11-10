@@ -1,0 +1,26 @@
+{
+  "nodes": [
+    { "id": "n_client", "kind": "client", "label": "고객 C · 29세 직장인", "detail": "세후 300만원, 형제 없이 부모 돌봄 예정", "x": 0, "y": 240, "metric": "monthly_income" },
+    { "id": "n_event", "kind": "risk", "label": "돌봄 발생 (0~72시간)", "detail": "근로시간 감소와 돌봄 비용이 동시에 발생", "x": 320, "y": 240 },
+    { "id": "n_income", "kind": "analysis", "label": "소득 감소 −70만원", "detail": "단축근무 가정에 따른 소득 감소", "x": 640, "y": 60 },
+    { "id": "n_cost", "kind": "analysis", "label": "추가 돌봄비 +45만원", "detail": "간병·이동·의료 소모품 등 가정", "x": 640, "y": 240 },
+    { "id": "n_runway", "kind": "risk", "label": "현금 소진 위험", "detail": "기간 중 최저 현금 잔액", "x": 640, "y": 440, "metric": "min_cash" },
+    { "id": "n_scn", "kind": "scenario", "label": "휴직·분담 시나리오", "detail": "휴직 3개월, 비용 분담 등 대안", "x": 960, "y": 60 },
+    { "id": "n_ai", "kind": "ai_proposal", "label": "AI 제안: 72시간 체크리스트", "detail": "지출 동결·긴급자금 분리·근무 조정 협의 순서", "x": 960, "y": 260 },
+    { "id": "n_evidence", "kind": "evidence", "label": "검증: 긴급자금 달성 시점", "detail": "1순위 긴급자금 목표 달성 월 독립 계산", "x": 960, "y": 460, "metric": "primary_goal_achieved_month" },
+    { "id": "n_goal", "kind": "goal", "label": "돌봄 장기화 대비", "detail": "24개월 내 1,000만원(가정)", "x": 1280, "y": 380 },
+    { "id": "n_action", "kind": "action", "label": "긴급자금 분리 · 지출 동결", "detail": "72시간 내 실행 항목", "x": 1280, "y": 140 }
+  ],
+  "edges": [
+    { "id": "e1", "source": "n_client", "target": "n_event", "label": "발생" },
+    { "id": "e2", "source": "n_event", "target": "n_income", "label": "근로시간" },
+    { "id": "e3", "source": "n_event", "target": "n_cost", "label": "비용" },
+    { "id": "e4", "source": "n_income", "target": "n_runway", "label": "" },
+    { "id": "e5", "source": "n_cost", "target": "n_runway", "label": "" },
+    { "id": "e6", "source": "n_income", "target": "n_scn", "label": "대안" },
+    { "id": "e7", "source": "n_runway", "target": "n_ai", "label": "우선순위" },
+    { "id": "e8", "source": "n_ai", "target": "n_evidence", "label": "검증" },
+    { "id": "e9", "source": "n_ai", "target": "n_action", "label": "실행" },
+    { "id": "e10", "source": "n_evidence", "target": "n_goal", "label": "" }
+  ]
+}

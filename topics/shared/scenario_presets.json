@@ -1,0 +1,5 @@
+[
+  { "id": "p_base", "name": "현재 유지", "description": "현재 조건 그대로", "color": "#3060a8", "adjustments": { "horizonMonths": 60 } },
+  { "id": "p_trim", "name": "변동지출 10만원 절감", "description": "변동지출을 월 100,000원 줄이는 경우", "color": "#7e60c6", "adjustments": { "horizonMonths": 60, "variableExpenseChange": -100000 } },
+  { "id": "p_prepay", "name": "부채 추가상환 10만원", "description": "금리가 가장 높은 부채에 월 100,000원 추가상환", "color": "#20907a", "adjustments": { "horizonMonths": 60, "extraDebtPayment": 100000 } }
+]

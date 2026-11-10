@@ -1,0 +1,21 @@
+{
+  "id": "household_business",
+  "name": "가계·사업 전염 방화벽",
+  "serviceName": "FINOVA · 전염 방화벽",
+  "tagline": "사업의 위기가 가계의 위기로 번지지 않도록, 전염 경로를 먼저 끊는 설계",
+  "problem": "소규모 사업자의 매출이 감소하면 사업 현금 부족분이 가계 자금으로 메워지면서 생활 안정까지 무너질 수 있습니다. 사업과 가계 현금흐름이 섞여 위험이 보이지 않는 것이 핵심 문제입니다.",
+  "targetCustomer": "가계 소득을 사업 인출에 의존하는 30대 소규모 사업자",
+  "primaryClientId": "client_b",
+  "signatureVisual": "contagion_map",
+  "accent": "rose",
+  "icon": "store",
+  "modules": ["core_cashflow", "business_contagion", "goal_priority"],
+  "agents": [
+    { "agent": "financial_analyst", "focus": "사업·가계 현금흐름 분리 진단" },
+    { "agent": "risk_detector", "focus": "매출 감소 시 사업 현금 소진과 가계 전염 경로 탐색" },
+    { "agent": "scenario_planner", "focus": "매출 감소 폭·방화벽 설정·지출 조정 대안 비교" },
+    { "agent": "critic", "focus": "매출 회복 낙관론과 전염액 계산 검토" },
+    { "agent": "report_writer", "focus": "가계 생활 안정 계획 중심 보고서" }
+  ],
+  "requiresDevelopment": []
+}

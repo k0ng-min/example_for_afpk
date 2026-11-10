@@ -1,0 +1,23 @@
+{
+  "id": "care_crisis",
+  "name": "돌봄 시작 72시간",
+  "serviceName": "FINOVA · 돌봄 위기 내비게이터",
+  "tagline": "갑작스러운 가족 돌봄이 시작된 72시간, 무엇을 먼저 지켜야 하는지 계산합니다",
+  "problem": "가족 돌봄이 갑자기 시작되면 근로시간 감소로 소득이 줄고 돌봄 비용이 추가되어, 짧은 기간 안에 생활 안정이 흔들립니다. 초기 72시간의 우선순위 판단이 이후 재무 경로를 좌우합니다.",
+  "targetCustomer": "갑작스럽게 부모 돌봄을 맡게 된 20~30대 1인 소득자",
+  "primaryClientId": "client_c",
+  "signatureVisual": "care_timeline",
+  "accent": "amber",
+  "icon": "heart_pulse",
+  "modules": ["core_cashflow", "care_shock", "goal_priority"],
+  "agents": [
+    { "agent": "financial_analyst", "focus": "돌봄 전후 소득·지출 변화 진단" },
+    { "agent": "risk_detector", "focus": "현금 소진 시점과 긴급 대응 우선순위 탐색" },
+    { "agent": "scenario_planner", "focus": "단축근무·휴직·비용 분담 시나리오 비교" },
+    { "agent": "critic", "focus": "확인되지 않은 공적 지원 제도 언급과 계산 오류 검토" },
+    { "agent": "report_writer", "focus": "단기(72시간·3개월)·중장기 계획을 구분해 정리" }
+  ],
+  "requiresDevelopment": [
+    "공적 돌봄 지원 제도 금액 반영은 확인된 출처가 필요하므로 자동 반영하지 않음(수동 입력 이벤트로만 반영)"
+  ]
+}

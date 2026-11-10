@@ -1,0 +1,39 @@
+{
+  "heroTitle": "AI의 재무설계안, 법정에 세워 검증합니다",
+  "heroSubtitle": "AI가 내놓은 모든 주장을 독립 계산과 근거 검토로 심리하고, 최종 판결은 사람이 기록합니다.",
+  "intro": "AI 재무설계 심사법정은 AI 초안의 주장마다 반론을 세우고, Rust 계산 엔진으로 숫자를 재계산하며, 근거가 없는 주장은 '근거 부족'으로 분리합니다. 수정 전후 계획을 비교한 뒤 사람이 최종 판단을 기록합니다.",
+  "problemStatement": "고객 E가 받은 AI 추천안은 연 7% 수익을 전제로 월 50만원 투자를 권하지만, 연 14.5% 카드론과 부족한 비상자금은 다루지 않습니다. 일부 숫자도 실제 계산과 다릅니다.",
+  "analysisQuestions": [
+    "AI가 말한 저축 여력은 실제 계산과 일치하는가?",
+    "연 7% 수익률 가정의 근거는 무엇인가?",
+    "고금리 카드론을 두고 투자를 늘리는 것이 합리적인가?",
+    "수정안은 AI 초안보다 기간 총 이자를 얼마나 줄이는가?"
+  ],
+  "stageDescriptions": [
+    "AI 추천을 받은 배경과 고객이 기대하는 바를 확인합니다.",
+    "AI 초안과 고객의 실제 재무 데이터를 함께 수집합니다.",
+    "AI 주장별로 독립 계산과 근거 검토를 수행합니다.",
+    "AI 초안과 수정안을 시나리오로 비교해 제시합니다.",
+    "인간 검토자가 승인한 항목만 실행합니다.",
+    "실행 결과를 AI 주장과 다시 대조해 점검합니다."
+  ],
+  "insightsHeading": "심리 결과",
+  "reportTitle": "AI 재무설계 심사법정 — AI 추천안 검증 보고서",
+  "reportSections": [
+    { "id": "summary", "title": "고객 요약과 AI 초안" },
+    { "id": "goals", "title": "재무목표" },
+    { "id": "status", "title": "독립 계산한 재무상태" },
+    { "id": "risks", "title": "AI 초안의 위험 요소" },
+    { "id": "scenarios", "title": "AI 초안 vs 수정안 비교" },
+    { "id": "recommendations", "title": "판결: 수정 권고안" },
+    { "id": "verification", "title": "주장별 심리 기록" },
+    { "id": "actions", "title": "승인된 실행 계획" },
+    { "id": "review", "title": "재심 조건" }
+  ],
+  "actionTemplates": [
+    { "id": "act_card", "title": "카드론 추가상환 월 30만원", "priority": 1, "dueMonth": 1, "amount": 300000, "reviewCondition": "카드론 잔액 0원 도달 시 투자 재검토" },
+    { "id": "act_emergency", "title": "비상예비자금 3개월분 확보", "priority": 1, "dueMonth": 12, "amount": 3000000, "reviewCondition": "현금 커버리지 3개월 미만 시" },
+    { "id": "act_invest_hold", "title": "AI 초안 투자안 보류 및 근거 요청", "priority": 2, "dueMonth": 1, "amount": 0, "reviewCondition": "수익률 근거 확인 시 재심" }
+  ],
+  "disclaimer": "고객 E와 AI 초안은 검증 시연용 합성 예시이며, 일부 주장에는 의도적인 오류가 포함되어 있습니다."
+}
