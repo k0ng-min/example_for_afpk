@@ -42,6 +42,36 @@
   --panel-solid: #ffffff;
   --void: #e3e9f1;
   color-scheme: light;
+
+  /* ── 최종 제출 사이트 토큰: 밝은 FINOVA 언어(화이트·연한 블루·옅은 그레이) ──
+     어두운 배경·네온·공격적 레드를 쓰지 않는다. 위험은 앰버·코랄의 연한 상태 배지로 표현한다. */
+  --paper: #f3f6fa;
+  --paper-2: #edf1f7;
+  --card: rgba(255, 255, 255, 0.86);
+  --rule: #e2e8f0;
+  --rule-strong: #cfd8e4;
+  --navy: #1f3150;
+  --navy-2: #2b416a;
+  --ink: #1d2736;
+  --ink-2: #566275;
+  --ink-3: #8a94a5;
+  --sky: #3b6aa8;
+  --sky-2: #5a86c0;
+  --sky-soft: #e9f0fa;
+  --good: #2e8770;
+  --good-soft: #e6f4ef;
+  --caution: #a8761f;
+  --caution-soft: #fbf3e2;
+  --alert: #c9644e;
+  --alert-soft: #fcefeb;
+  --violet-soft: #f0edf9;
+  --violet-ink: #5d4a9a;
+  --card-shadow: 0 1px 2px rgba(31, 49, 80, 0.04), 0 12px 32px -18px rgba(31, 49, 80, 0.18);
+  /* 전략 색: dataviz 검증(밝은 면) — D 는 점선 + 직접 라벨로 보조 인코딩 */
+  --s-a: #34539a;
+  --s-b: #3c97d0;
+  --s-c: #c9741e;
+  --s-d: #2e9265;
 }
 :root[data-accent="cyan"] { --accent: #2e7f9e; }
 :root[data-accent="blue"] { --accent: #3d5c88; }
@@ -76,6 +106,31 @@
   --color-s4: rgba(36, 56, 86, 0.1);
   --color-line: var(--hair);
   --color-line-strong: var(--hair-strong);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-card: var(--card);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-sky: var(--sky);
+  --color-sky-2: var(--sky-2);
+  --color-sky-soft: var(--sky-soft);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-caution: var(--caution);
+  --color-caution-soft: var(--caution-soft);
+  --color-alert: var(--alert);
+  --color-alert-soft: var(--alert-soft);
+  --color-violet-soft: var(--violet-soft);
+  --color-violet-ink: var(--violet-ink);
+  --color-sa: var(--s-a);
+  --color-sb: var(--s-b);
+  --color-sc: var(--s-c);
+  --color-sd: var(--s-d);
 }
 
 html,
@@ -95,14 +150,7 @@ body {
   -webkit-font-smoothing: antialiased;
   word-break: keep-all;
   overflow-wrap: anywhere;
-  /* 흐린 블루그레이 배경: 사진 대신 겹친 그라데이션으로 직접 구성(외부 이미지 없음) */
-  background:
-    radial-gradient(900px 600px at 12% 8%, rgba(255, 255, 255, 0.85), transparent 60%),
-    radial-gradient(700px 520px at 88% 18%, color-mix(in oklab, var(--bg-3) 70%, transparent), transparent 65%),
-    radial-gradient(800px 700px at 70% 95%, color-mix(in oklab, var(--bg-3) 55%, transparent), transparent 65%),
-    radial-gradient(600px 500px at 20% 85%, rgba(255, 255, 255, 0.6), transparent 60%),
-    linear-gradient(160deg, var(--bg-1), var(--bg-2));
-  background-attachment: fixed;
+  background: #f4f4f5;
 }
 
 /* 유리 면 */
@@ -250,3 +298,68 @@ input[type="checkbox"] { accent-color: var(--primary); }
 
 /* 가로 스크롤 목록의 오른쪽 끝 흐림(더 있음을 알림) */
 .scroll-fade-x { mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 28px), transparent 100%); }
+
+/* ── 최종 제출 사이트 공통 ── */
+/* 최종 사이트: 모던 블랙 & 화이트(2026-11-11 사용자 요청). 상태색(초록·앰버·코랄)만 의미 전달용으로 남긴다 */
+.cpa {
+  --paper: #f6f6f7;
+  --paper-2: #efeff1;
+  --card: rgba(255, 255, 255, 0.92);
+  --rule: #e6e6e9;
+  --rule-strong: #d4d4d8;
+  --navy: #0e0e10;
+  --navy-2: #27272a;
+  --ink: #18181b;
+  --ink-2: #52525b;
+  --ink-3: #8a8a93;
+  --sky: #111113;
+  --sky-2: #52525b;
+  --sky-soft: #f0f0f2;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 14px 34px -20px rgba(0, 0, 0, 0.22);
+  --s-a: #18181b;
+  --s-b: #3d7cc9;
+  --s-c: #d07a1f;
+  --s-d: #2e9265;
+  /* Tailwind 색 토큰은 :root에서 계산되므로 이 범위에서 다시 연결한다 */
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-sky: var(--sky);
+  --color-sky-2: var(--sky-2);
+  --color-sky-soft: var(--sky-soft);
+  color: var(--ink);
+  min-height: 100%;
+  background:
+    radial-gradient(1000px 520px at 0% -10%, rgba(0, 0, 0, 0.035), transparent 60%),
+    linear-gradient(180deg, #fafafa 0%, var(--paper) 45%, #f3f3f4 100%);
+  background-attachment: fixed;
+}
+.cpa .eyebrow { font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink-2); text-transform: uppercase; }
+.cpa .t-hero { font-size: clamp(28px, 3.6vw, 40px); line-height: 1.2; font-weight: 400; letter-spacing: -0.035em; color: var(--navy); }
+.cpa .t-h1 { font-size: clamp(24px, 2.6vw, 30px); line-height: 1.25; font-weight: 500; letter-spacing: -0.03em; color: var(--navy); }
+.cpa .t-h2 { font-size: 17px; line-height: 1.35; font-weight: 600; letter-spacing: -0.02em; color: var(--navy); }
+.cpa .t-num { font-feature-settings: "tnum" 1; letter-spacing: -0.02em; }
+.cpa .card { background: var(--card); border: 1px solid rgba(0, 0, 0, 0.07); border-radius: 18px; box-shadow: var(--card-shadow); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.cpa .card-soft { background: #f5f5f6; border: 1px solid #ebebee; border-radius: 12px; }
+.cpa .note { border-left: 3px solid var(--sky-2); background: var(--sky-soft); border-radius: 0 12px 12px 0; }
+.cpa input[type="range"].instrument::-webkit-slider-runnable-track { background: linear-gradient(90deg, var(--sky) 0 var(--p), var(--rule-strong) var(--p) 100%); }
+.cpa input[type="range"].instrument::-moz-range-progress { background: var(--sky); }
+.cpa input[type="range"].instrument::-moz-range-track { background: var(--rule-strong); }
+.cpa input[type="checkbox"] { accent-color: var(--sky); }
+.cpa :focus-visible { outline: 2px solid color-mix(in oklab, var(--sky) 70%, transparent); outline-offset: 2px; }
+.hatch { background-image: repeating-linear-gradient(135deg, transparent 0 5px, color-mix(in oklab, var(--ink-3) 35%, transparent) 5px 6px); }
+@media print {
+  .cpa { background: #fff !important; }
+  .cpa .card { border-color: #ccc !important; break-inside: avoid; }
+  .cpa-chrome { display: none !important; }
+}
+
+.cpa .glass-bar { background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); }
+.cpa .btn-primary { background: linear-gradient(180deg, #2b2b30, #0c0c0e); color: #fff; box-shadow: 0 1px 0 rgba(255,255,255,.14) inset, 0 8px 18px -10px rgba(0,0,0,.7); }
+.cpa .btn-primary:hover { filter: brightness(1.25); }

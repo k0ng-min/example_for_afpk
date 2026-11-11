@@ -14,3 +14,8 @@ frontend/dist/
 !.vscode/extensions.json
 .DS_Store
 Thumbs.db
+
+# 팀 내부 문서(공개 저장소에 올리지 않음)
+AFPK_*.pdf
+VIDEO.MD
+VIDEO.mp4

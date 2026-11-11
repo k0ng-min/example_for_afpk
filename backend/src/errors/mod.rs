@@ -25,6 +25,10 @@ pub enum AppError {
     Conflict(String),
     #[error("topic invalid")]
     TopicInvalid(Box<ValidationReport>),
+    #[error("unavailable: {0}")]
+    Unavailable(String),
+    #[error("upstream: {0}")]
+    Upstream(String),
     #[error("internal: {0}")]
     Internal(String),
 }
@@ -57,6 +61,8 @@ impl IntoResponse for AppError {
             AppError::AdminDisabled => (StatusCode::FORBIDDEN, "ADMIN_DISABLED", "이 배포 환경에서는 관리자 기능이 비활성화되어 있습니다".to_string(), json!(null)),
             AppError::Conflict(m) => (StatusCode::CONFLICT, "CONFLICT", m, json!(null)),
             AppError::TopicInvalid(report) => (StatusCode::UNPROCESSABLE_ENTITY, "TOPIC_INVALID", "주제 구성이 검증을 통과하지 못했습니다".to_string(), json!(report)),
+            AppError::Unavailable(m) => (StatusCode::SERVICE_UNAVAILABLE, "AI_NOT_CONFIGURED", m, json!(null)),
+            AppError::Upstream(m) => (StatusCode::BAD_GATEWAY, "AI_CALL_FAILED", m, json!(null)),
             AppError::Internal(detail) => {
                 tracing::error!(error = %detail, "internal error");
                 (StatusCode::INTERNAL_SERVER_ERROR, "INTERNAL_ERROR", "서버 내부 오류가 발생했습니다".to_string(), json!(null))

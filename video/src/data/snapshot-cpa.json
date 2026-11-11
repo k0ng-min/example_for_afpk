@@ -1,0 +1,391 @@
+{
+  "meta": {
+    "source": "FINOVA Rust 계산 엔진 API (/api/cpa/defaults · analyze · explore)",
+    "fetchedAt": "2026-11-11T08:17:12.091Z",
+    "aiModel": "gemini-3.5-flash",
+    "note": "가상 고객 김유예는 합성 데이터. 임금 기본값은 보도·경총 조사 기반 가정, 2027년 시험 일정은 공고 전 임시."
+  },
+  "client": {
+    "name": "김유예",
+    "cash0": 14000000,
+    "deposit": 10000000,
+    "studentLoan": 16000000,
+    "living": 1200000,
+    "examCost": 200000,
+    "supportInitial": 600000,
+    "supportReduced": 300000,
+    "supportReduceFrom": "2027-03",
+    "supportStopFrom": "2027-09",
+    "safetyMin": 3600000,
+    "signal1": 7200000,
+    "signal2": 4800000,
+    "partTimeIncome": 800000,
+    "examMonth": "2027-06",
+    "announceMonth": "2027-09",
+    "startMonth": "2026-12",
+    "traineeSalary": 3200000,
+    "jobWage": 2700000
+  },
+  "months": [
+    "2026-12",
+    "2027-01",
+    "2027-02",
+    "2027-03",
+    "2027-04",
+    "2027-05",
+    "2027-06",
+    "2027-07",
+    "2027-08",
+    "2027-09",
+    "2027-10",
+    "2027-11",
+    "2027-12",
+    "2028-01",
+    "2028-02",
+    "2028-03",
+    "2028-04",
+    "2028-05"
+  ],
+  "short": [
+    {
+      "id": "A",
+      "name": "전업 수험",
+      "cash": [
+        13200000,
+        12400000,
+        11600000,
+        10500000,
+        9400000,
+        8300000,
+        7200000,
+        6250000,
+        5300000,
+        4050000,
+        2800000,
+        1550000,
+        300000,
+        -950000,
+        -2200000,
+        -3450000,
+        -4700000,
+        -5950000
+      ],
+      "tau": "2027-10",
+      "insolvent": "2028-01",
+      "minCash": -5950000,
+      "endCash": -5950000,
+      "pass": false
+    },
+    {
+      "id": "B",
+      "name": "근로 병행",
+      "cash": [
+        14000000,
+        14000000,
+        14000000,
+        13700000,
+        13400000,
+        13100000,
+        12800000,
+        12650000,
+        12500000,
+        12050000,
+        11600000,
+        11150000,
+        10700000,
+        10250000,
+        9800000,
+        9350000,
+        8900000,
+        8450000
+      ],
+      "tau": null,
+      "insolvent": null,
+      "minCash": 8450000,
+      "endCash": 8450000,
+      "pass": true
+    },
+    {
+      "id": "C",
+      "name": "취업 전환",
+      "cash": [
+        13400000,
+        12800000,
+        14900000,
+        16700000,
+        18500000,
+        20300000,
+        22100000,
+        23900000,
+        25700000,
+        27200000,
+        28700000,
+        30200000,
+        31700000,
+        33200000,
+        34700000,
+        36200000,
+        37700000,
+        39200000
+      ],
+      "tau": null,
+      "insolvent": null,
+      "minCash": 12800000,
+      "endCash": 39200000,
+      "pass": true
+    },
+    {
+      "id": "D",
+      "name": "조건부 전환",
+      "cash": [
+        13200000,
+        12400000,
+        11600000,
+        10500000,
+        9400000,
+        8300000,
+        7200000,
+        7050000,
+        6900000,
+        6450000,
+        6000000,
+        5550000,
+        5100000,
+        4650000,
+        4200000,
+        3750000,
+        5250000,
+        6750000
+      ],
+      "tau": null,
+      "insolvent": null,
+      "minCash": 3750000,
+      "endCash": 6750000,
+      "pass": true
+    }
+  ],
+  "tolerance": [
+    {
+      "strategy": "A",
+      "months": 0,
+      "openEnded": false
+    },
+    {
+      "strategy": "B",
+      "months": 8,
+      "openEnded": true
+    },
+    {
+      "strategy": "C",
+      "months": 8,
+      "openEnded": true
+    },
+    {
+      "strategy": "D",
+      "months": 8,
+      "openEnded": true
+    }
+  ],
+  "signals": {
+    "s1": "2027-06",
+    "s1Effect": "2027-07",
+    "s2": "2028-01",
+    "s2Effect": "2028-04"
+  },
+  "long": [
+    {
+      "id": "C",
+      "name": "취업 전환",
+      "value": 77656773,
+      "rank": 1
+    },
+    {
+      "id": "B",
+      "name": "근로 병행",
+      "value": 71796649,
+      "rank": 2
+    },
+    {
+      "id": "D",
+      "name": "조건부 전환",
+      "value": 67849978,
+      "rank": 3
+    }
+  ],
+  "longAssumption": {
+    "p": 45,
+    "q": 70,
+    "delay": 3,
+    "r": 5
+  },
+  "sensitivity": {
+    "runwayBase": 10,
+    "rows": [
+      {
+        "label": "현재 보유 현금",
+        "low": "-20%",
+        "high": "+20%",
+        "runwayLow": 7,
+        "runwayHigh": 12
+      },
+      {
+        "label": "필수 생활비",
+        "low": "-20%",
+        "high": "+20%",
+        "runwayLow": 12,
+        "runwayHigh": 8
+      },
+      {
+        "label": "가족 지원 금액",
+        "low": "-20%",
+        "high": "+20%",
+        "runwayLow": 9,
+        "runwayHigh": 10
+      },
+      {
+        "label": "가족 지원 종료 시점",
+        "low": "3개월 빨리",
+        "high": "3개월 늦게",
+        "runwayLow": 9,
+        "runwayHigh": 10
+      },
+      {
+        "label": "비상금 하한(안전자금)",
+        "low": "-20%",
+        "high": "+20%",
+        "runwayLow": 10,
+        "runwayHigh": 9
+      },
+      {
+        "label": "수험비",
+        "low": "-20%",
+        "high": "+20%",
+        "runwayLow": 10,
+        "runwayHigh": 10
+      }
+    ]
+  },
+  "stress": [
+    {
+      "label": "지금 가정",
+      "pass": [
+        false,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "label": "가족 지원이 3개월 일찍 끊김",
+      "pass": [
+        false,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "label": "물가·월세 상승(생활비 +15%)",
+      "pass": [
+        false,
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "label": "아르바이트가 2개월 늦게 구해짐",
+      "pass": [
+        false,
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "label": "아르바이트 소득 25% 감소",
+      "pass": [
+        false,
+        true,
+        true,
+        false
+      ]
+    },
+    {
+      "label": "300만 원 긴급 지출(병원·이사)",
+      "pass": [
+        false,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "label": "위 다섯 가지가 한꺼번에",
+      "pass": [
+        false,
+        false,
+        true,
+        false
+      ]
+    }
+  ],
+  "supports": [
+    {
+      "name": "서울시 청년수당",
+      "kind": "grant",
+      "runway": 12,
+      "baseRunway": 10
+    },
+    {
+      "name": "국민취업지원제도 구직촉진수당",
+      "kind": "grant",
+      "runway": 10,
+      "baseRunway": 10
+    },
+    {
+      "name": "햇살론 유스(정책 대출)",
+      "kind": "loan",
+      "runway": 15,
+      "baseRunway": 10
+    }
+  ],
+  "verification": {
+    "claims": [
+      {
+        "exp": "E1",
+        "model": "gemini-3.5-flash",
+        "text": "2027년 9월 말 예상 현금 잔액 4,050,000원",
+        "ai": 4050000,
+        "engine": 4050000,
+        "status": "match",
+        "what": "2027.09 말 잔액"
+      },
+      {
+        "exp": "E8",
+        "model": "gemini-3.5-flash",
+        "text": "2027년 9월 말 잔여 현금 465만 원",
+        "ai": 4650000,
+        "engine": 4050000,
+        "status": "error",
+        "what": "2027.09 말 잔액"
+      },
+      {
+        "exp": "E6",
+        "model": "gemini-flash-lite-latest",
+        "text": "2027년 1~9월 총 부족 자금 약 310만 원",
+        "ai": 3100000,
+        "engine": 9950000,
+        "status": "error",
+        "what": "9개월간 줄어든 돈"
+      }
+    ],
+    "experiments": 8,
+    "totals": {
+      "claims": 23,
+      "match": 6,
+      "error": 7,
+      "review": 10
+    }
+  }
+}

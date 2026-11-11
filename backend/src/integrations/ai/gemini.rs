@@ -62,7 +62,7 @@ impl GeminiClient {
         let body = json!({
             "systemInstruction": { "parts": [{ "text": system }] },
             "contents": [{ "role": "user", "parts": [{ "text": user }] }],
-            "generationConfig": { "temperature": 0.2, "maxOutputTokens": 2048 }
+            "generationConfig": { "temperature": 0.2, "maxOutputTokens": 8192 }
         });
         let url = format!("{ENDPOINT}/{model}:generateContent");
         let res = self
@@ -90,11 +90,17 @@ impl GeminiClient {
         }
         let text: String = v["candidates"][0]["content"]["parts"]
             .as_array()
-            .map(|parts| parts.iter().filter_map(|p| p["text"].as_str()).collect::<Vec<_>>().join(""))
+            .map(|parts| parts.iter().filter(|p| p["thought"].as_bool() != Some(true)).filter_map(|p| p["text"].as_str()).collect::<Vec<_>>().join(""))
             .unwrap_or_default();
         if text.trim().is_empty() {
             let reason = v["candidates"][0]["finishReason"].as_str().or(v["promptFeedback"]["blockReason"].as_str()).unwrap_or("빈 응답");
             return Err((false, format!("{model} 가 답변을 만들지 않았습니다({reason})")));
+        }
+        // 길이 제한으로 잘린 답은 잘렸다고 표시한다(잘린 출력을 완전한 답처럼 보이지 않게)
+        if v["candidates"][0]["finishReason"].as_str() == Some("MAX_TOKENS") {
+            return Ok(format!("{text}
+
+[응답이 최대 출력 길이에서 잘렸습니다]"));
         }
         Ok(text)
     }

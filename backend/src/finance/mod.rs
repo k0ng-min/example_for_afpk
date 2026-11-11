@@ -4,6 +4,7 @@ pub mod business;
 pub mod care;
 pub mod cashflow;
 pub mod comparison;
+pub mod cpa_gap;
 pub mod liabilities;
 pub mod metrics;
 pub mod pattern;

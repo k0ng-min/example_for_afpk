@@ -1,0 +1,167 @@
+{
+ "idea": "cpa_gap",
+ "provider": "Google Gemini TTS",
+ "model": "gemini-2.5-flash-preview-tts",
+ "voice": "Sulafat",
+ "scenes": {
+  "problem": {
+   "file": "narration/cpa_gap/problem.wav",
+   "from": 0.5,
+   "dur": 10.45,
+   "cues": [
+    {
+     "text": "보유 현금 1,400만 원, 줄어드는 가족 지원,",
+     "from": 0.45,
+     "to": 4.29
+    },
+    {
+     "text": "아직 정해지지 않은 수습처.",
+     "from": 4.39,
+     "to": 6.6
+    },
+    {
+     "text": "CPA 2차 유예생에게 합격은 끝이 아닙니다.",
+     "from": 6.88,
+     "to": 11.2
+    }
+   ],
+   "aligned": true
+  },
+  "intro": {
+   "file": "narration/cpa_gap/intro.wav",
+   "from": 0.5,
+   "dur": 7.46,
+   "cues": [
+    {
+     "text": "합격 전 수험 기간과 합격 후 첫 급여까지.",
+     "from": 0.45,
+     "to": 3.94
+    },
+    {
+     "text": "두 번의 소득 공백을 하나의 워크스페이스에서 설계합니다.",
+     "from": 4.28,
+     "to": 8.21
+    }
+   ],
+   "aligned": true
+  },
+  "client": {
+   "file": "narration/cpa_gap/client.wav",
+   "from": 0.5,
+   "dur": 11.41,
+   "cues": [
+    {
+     "text": "고객의 돈과 일정을 넣으면,",
+     "from": 0.45,
+     "to": 6.56
+    },
+    {
+     "text": "Rust 계산 엔진이 매달 잔액을 계산합니다.",
+     "from": 6.85,
+     "to": 7.15
+    },
+    {
+     "text": "공부만 계속하면 10개월 뒤 비상금 하한 아래로 내려갑니다.",
+     "from": 7.23,
+     "to": 12.16
+    }
+   ],
+   "aligned": true
+  },
+  "ai": {
+   "file": "narration/cpa_gap/ai.wav",
+   "from": 0.5,
+   "dur": 11.41,
+   "cues": [
+    {
+     "text": "AI 분석은 고객 상황부터 전환 규칙까지 판단의 흐름을 연결합니다.",
+     "from": 0.45,
+     "to": 6.67
+    },
+    {
+     "text": "먼저 네 가지 선택지가 18개월을 버티는지 확인합니다.",
+     "from": 6.78,
+     "to": 12.16
+    }
+   ],
+   "aligned": true
+  },
+  "simulate": {
+   "file": "narration/cpa_gap/simulate.wav",
+   "from": 0.5,
+   "dur": 10.38,
+   "cues": [
+    {
+     "text": "조건을 바꾸면 그래프가 바로 다시 계산됩니다.",
+     "from": 0.45,
+     "to": 3.91
+    },
+    {
+     "text": "생활비 상승과 지원 중단 같은 충격을 한꺼번에 넣어,",
+     "from": 4.46,
+     "to": 8.27
+    },
+    {
+     "text": "어느 선택지가 끝까지 버티는지 봅니다.",
+     "from": 8.34,
+     "to": 11.13
+    }
+   ],
+   "aligned": true
+  },
+  "verify": {
+   "file": "narration/cpa_gap/verify.wav",
+   "from": 0.5,
+   "dur": 12.75,
+   "cues": [
+    {
+     "text": "AI의 답은 정답이 아니라 검증할 가설입니다.",
+     "from": 0.45,
+     "to": 4.07
+    },
+    {
+     "text": "실제 AI 답변의 숫자를 엔진 값과 하나씩 대조해,",
+     "from": 4.27,
+     "to": 8.86
+    },
+    {
+     "text": "부족 자금을 310만 원으로 잘못 계산한 오류를 찾아냈습니다.",
+     "from": 8.94,
+     "to": 13.5
+    }
+   ],
+   "aligned": true
+  },
+  "plan": {
+   "file": "narration/cpa_gap/plan.wav",
+   "from": 0.5,
+   "dur": 10.03,
+   "cues": [
+    {
+     "text": "검증된 결과는 잔액 점검선에 따른 실행 규칙과 보고서로 정리됩니다.",
+     "from": 0.45,
+     "to": 6.51
+    },
+    {
+     "text": "언제 무엇을 바꿀지 미리 정해 둡니다.",
+     "from": 7.22,
+     "to": 10.78
+    }
+   ],
+   "aligned": true
+  },
+  "ending": {
+   "file": "narration/cpa_gap/ending.wav",
+   "from": 0.5,
+   "dur": 3.83,
+   "cues": [
+    {
+     "text": "합격 확률이 아니라, 버틸 수 있는 시간을 설계합니다.",
+     "from": 0.45,
+     "to": 4.58
+    }
+   ],
+   "aligned": true
+  }
+ }
+}

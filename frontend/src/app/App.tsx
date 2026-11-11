@@ -1,16 +1,13 @@
 import { BrowserRouter } from 'react-router-dom'
-import { AppShell } from '@/components/layout/AppShell'
-import { BootProvider } from '@/app/providers/BootProvider'
-import { AppRoutes } from '@/app/router'
+import { MotionConfig } from 'motion/react'
+import { CpaRoutes } from '@/app/router/cpa'
 
 export default function App() {
   return (
     <BrowserRouter>
-      <BootProvider>
-        <AppShell>
-          <AppRoutes />
-        </AppShell>
-      </BootProvider>
+      <MotionConfig reducedMotion="user">
+        <CpaRoutes />
+      </MotionConfig>
     </BrowserRouter>
   )
 }

@@ -6,12 +6,23 @@ use tower_http::cors::CorsLayer;
 use tower_http::services::{ServeDir, ServeFile};
 use tower_http::trace::TraceLayer;
 
-use crate::api::handlers::{clients, finance, ideas};
+use crate::api::handlers::{clients, cpa, finance, ideas};
 use crate::services::state::AppState;
 
 pub fn api_router() -> Router<AppState> {
     Router::new()
         .route("/health", get(clients::health))
+        // 최종 아이디어: CPA 유예생 소득 공백 재무설계
+        .route("/cpa/defaults", get(cpa::defaults))
+        .route("/cpa/analyze", post(cpa::analyze))
+        .route("/cpa/explore", post(cpa::explore))
+        .route("/cpa/checkin", post(cpa::checkin))
+        .route("/cpa/experiments", get(cpa::experiments))
+        .route("/cpa/ai/run", post(cpa::run_ai))
+        .route("/cpa/ai/screen", post(cpa::screen))
+        .route("/cpa/ask", post(cpa::ask))
+        .route("/cpa/icl", post(cpa::icl))
+        .route("/cpa/runs", get(cpa::runs))
         .route("/clients", get(clients::list))
         .route("/clients/reset", post(clients::reset))
         .route("/clients/{id}", get(clients::get).put(clients::put))

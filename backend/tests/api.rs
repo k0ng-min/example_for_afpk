@@ -334,3 +334,121 @@ async fn action_plan_status_persists() {
     let (s, _) = call(&app, "PUT", "/api/clients/client_a/actions", Some(bad), false).await;
     assert_eq!(s, StatusCode::BAD_REQUEST);
 }
+
+// ── 최종 아이디어: CPA 유예생 소득 공백 ──
+
+#[tokio::test]
+async fn cpa_analyze_reproduces_proposal_baseline() {
+    let app = app().await;
+    let (s, d) = call(&app, "GET", "/api/cpa/defaults", None, false).await;
+    assert_eq!(s, StatusCode::OK);
+    assert_eq!(d["cash0"], 14_000_000);
+    assert_eq!(d["jobWage"], 2_700_000, "기본값은 조사 자료 기반 임금");
+    assert_eq!(d["traineeSalary"], 3_200_000);
+    // 기획서 기준선은 임금 미입력 가정
+    let pdf = json!({ "jobWage": null, "traineeSalary": null, "cpaSalary": null });
+    let (s, v) = call(&app, "POST", "/api/cpa/analyze", Some(pdf), false).await;
+    assert_eq!(s, StatusCode::OK, "{v}");
+    let path = |k: &str| v["short"].as_array().unwrap().iter().find(|p| p["strategy"] == k).unwrap().clone();
+    assert_eq!(path("A")["tau"], "2027-10");
+    assert_eq!(path("A")["tauCash"], 2_800_000);
+    assert_eq!(path("B")["endCash"], 8_450_000);
+    assert_eq!(path("D")["tau"], "2028-04");
+    assert_eq!(v["long"]["available"], false);
+    assert_eq!(v["balanceSheet"]["liquid"], 14_000_000);
+}
+
+#[tokio::test]
+async fn cpa_inputs_change_results() {
+    let app = app().await;
+    let (_, base) = call(&app, "POST", "/api/cpa/analyze", Some(json!({})), false).await;
+    let (_, more) = call(&app, "POST", "/api/cpa/analyze", Some(json!({ "living": 1_500_000 })), false).await;
+    let end = |v: &Value| v["short"][0]["endCash"].as_i64().unwrap();
+    assert_eq!(end(&base) - end(&more), 300_000 * 18);
+}
+
+#[tokio::test]
+async fn cpa_rejects_invalid_or_unknown_inputs() {
+    let app = app().await;
+    let (s, v) = call(&app, "POST", "/api/cpa/analyze", Some(json!({ "cash0": -5, "pPct": 300 })), false).await;
+    assert_eq!(s, StatusCode::BAD_REQUEST);
+    assert_eq!(v["error"]["code"], "VALIDATION_ERROR");
+    let (s, _) = call(&app, "POST", "/api/cpa/analyze", Some(json!({ "hack": 1 })), false).await;
+    assert_eq!(s, StatusCode::BAD_REQUEST);
+    let (s, _) = call(&app, "POST", "/api/cpa/analyze", Some(json!({ "examMonth": "2027-13" })), false).await;
+    assert_eq!(s, StatusCode::BAD_REQUEST);
+}
+
+#[tokio::test]
+async fn cpa_experiments_and_screening() {
+    let app = app().await;
+    let (s, v) = call(&app, "GET", "/api/cpa/experiments", None, false).await;
+    assert_eq!(s, StatusCode::OK);
+    assert_eq!(v["experiments"].as_array().unwrap().len(), 8);
+    assert!(v["ai"]["configured"].is_boolean());
+    let (s, f) = call(&app, "POST", "/api/cpa/ai/screen", Some(json!({ "experimentId": "E1", "output": "유예생 합격률이 61%이므로 이 고객의 합격 확률은 61%입니다." })), false).await;
+    assert_eq!(s, StatusCode::OK);
+    assert_eq!(f["flags"].as_array().unwrap().len(), 1);
+    let (s, _) = call(&app, "POST", "/api/cpa/ai/screen", Some(json!({ "experimentId": "../x", "output": "a" })), false).await;
+    assert_eq!(s, StatusCode::BAD_REQUEST);
+    let (s, _) = call(&app, "POST", "/api/cpa/ai/screen", Some(json!({ "experimentId": "E9", "output": "a" })), false).await;
+    assert_eq!(s, StatusCode::NOT_FOUND);
+}
+
+#[tokio::test]
+async fn cpa_ask_rule_answers_and_scope_guard() {
+    let app = app().await;
+    let (s, v) = call(&app, "POST", "/api/cpa/ask", Some(json!({ "questionId": "floor" })), false).await;
+    assert_eq!(s, StatusCode::OK, "{v}");
+    assert_eq!(v["mode"], "rule");
+    assert!(v["rule"]["answer"].as_str().unwrap().contains("2027.10"));
+    let (_, v) = call(&app, "POST", "/api/cpa/ask", Some(json!({ "questionId": "supportCut" })), false).await;
+    assert!(v["rule"]["facts"].as_array().unwrap().len() >= 4);
+    let (_, v) = call(&app, "POST", "/api/cpa/ask", Some(json!({ "question": "제가 합격할 수 있을까요? 합격 확률 알려주세요" })), false).await;
+    assert_eq!(v["rule"]["outOfScope"], true);
+    let (s, _) = call(&app, "POST", "/api/cpa/ask", Some(json!({ "questionId": "nope" })), false).await;
+    assert_eq!(s, StatusCode::NOT_FOUND);
+}
+
+#[tokio::test]
+async fn cpa_icl_uses_official_threshold() {
+    let app = app().await;
+    let (s, v) = call(&app, "POST", "/api/cpa/icl", Some(json!({ "grossAnnual": 45_000_000, "incomeYear": 2025 })), false).await;
+    assert_eq!(s, StatusCode::OK, "{v}");
+    assert_eq!(v["annualObligation"], 2_804_000);
+    assert_eq!(v["thresholdConfirmed"], true);
+    let (s, _) = call(&app, "POST", "/api/cpa/icl", Some(json!({ "grossAnnual": 1, "incomeYear": 2025, "rateBps": 3000 })), false).await;
+    assert_eq!(s, StatusCode::BAD_REQUEST);
+}
+
+#[tokio::test]
+async fn cpa_explore_returns_sensitivity_and_supports() {
+    let app = app().await;
+    let (s, v) = call(&app, "POST", "/api/cpa/explore", Some(json!({})), false).await;
+    assert_eq!(s, StatusCode::OK, "{v}");
+    assert_eq!(v["sensitivity"]["runwayBase"], 10);
+    assert_eq!(v["sensitivity"]["rows"].as_array().unwrap().len(), 6);
+    assert_eq!(v["supports"]["options"].as_array().unwrap().len(), 3);
+    assert!(v["supports"]["options"].as_array().unwrap().iter().all(|o| o["verified"] == false));
+    let flows = json!({ "extraFlows": [{ "from": "2027-05", "months": 6, "amount": 500000, "label": "test" }] });
+    let (s, a) = call(&app, "POST", "/api/cpa/analyze", Some(flows), false).await;
+    assert_eq!(s, StatusCode::OK, "{a}");
+    let (s, _) = call(&app, "POST", "/api/cpa/analyze", Some(json!({ "extraFlows": [{ "from": "2027-05", "months": 0, "amount": 1 }] })), false).await;
+    assert_eq!(s, StatusCode::BAD_REQUEST);
+}
+
+#[tokio::test]
+async fn cpa_checkin_and_explore_extras() {
+    let app = app().await;
+    let (s, v) = call(&app, "POST", "/api/cpa/explore", Some(json!({})), false).await;
+    assert_eq!(s, StatusCode::OK);
+    assert_eq!(v["fans"].as_array().unwrap().len(), 4);
+    assert_eq!(v["stress"]["cases"].as_array().unwrap().len(), 6);
+    let body = json!({ "strategy": "D", "entries": [{ "month": "2027-01", "cash": 13000000 }, { "month": "2027-02", "cash": 7000000 }] });
+    let (s, c) = call(&app, "POST", "/api/cpa/checkin", Some(body), false).await;
+    assert_eq!(s, StatusCode::OK, "{c}");
+    assert_eq!(c["rows"][1]["level"], "signal1");
+    assert_eq!(c["reprojection"]["from"], "2027-03");
+    let (s, _) = call(&app, "POST", "/api/cpa/checkin", Some(json!({ "strategy": "D", "entries": [{ "month": "2020-01", "cash": 1 }] })), false).await;
+    assert_eq!(s, StatusCode::BAD_REQUEST);
+}
